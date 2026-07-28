@@ -53,11 +53,16 @@ function PageSectionForm() {
 		persist({ ...form.state.values, [name]: value });
 	};
 
-	const pageNumberFields = [
-		{ name: "marginX" as const, label: <Trans>Margin (Horizontal)</Trans>, min: 0, max: 100 as number | undefined },
-		{ name: "marginY" as const, label: <Trans>Margin (Vertical)</Trans>, min: 0, max: 100 as number | undefined },
-		{ name: "gapX" as const, label: <Trans>Spacing (Horizontal)</Trans>, min: 0, max: undefined },
-		{ name: "gapY" as const, label: <Trans>Spacing (Vertical)</Trans>, min: 0, max: undefined },
+	const CLAMP_MIN = 0;
+const CLAMP_MAX = 100;
+
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+
+const pageNumberFields = [
+	{ name: "marginX" as const, label: <Trans>Margin (Horizontal)</Trans>, min: CLAMP_MIN, max: CLAMP_MAX },
+	{ name: "marginY" as const, label: <Trans>Margin (Vertical)</Trans>, min: CLAMP_MIN, max: CLAMP_MAX },
+	{ name: "gapX" as const, label: <Trans>Spacing (Horizontal)</Trans>, min: 0, max: undefined },
+	{ name: "gapY" as const, label: <Trans>Spacing (Vertical)</Trans>, min: 0, max: undefined },
 	];
 
 	const pageSwitchFields = [
@@ -151,7 +156,8 @@ function PageSectionForm() {
 											onBlur={field.handleBlur}
 											onChange={(e) => {
 												const v = e.target.value;
-												const num = v === "" ? ("" as unknown as number) : Number(v);
+												const raw = v === "" ? ("" as unknown as number) : Number(v);
+												const num = max !== undefined && typeof raw === "number" ? clamp(raw, min ?? 0, max) : raw;
 												field.handleChange(num);
 												handleAutoSave(name, num);
 											}}
