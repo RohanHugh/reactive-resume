@@ -29,6 +29,11 @@ const formSchema = pageSchema;
 
 type FormValues = z.infer<typeof formSchema>;
 
+const CLAMP_MIN = 0;
+const CLAMP_MAX = 100;
+
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+
 function PageSectionForm() {
 	const resume = useResume();
 	const page = resume?.data.metadata.page;
@@ -53,16 +58,11 @@ function PageSectionForm() {
 		persist({ ...form.state.values, [name]: value });
 	};
 
-	const CLAMP_MIN = 0;
-const CLAMP_MAX = 100;
-
-const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
-
-const pageNumberFields = [
-	{ name: "marginX" as const, label: <Trans>Margin (Horizontal)</Trans>, min: CLAMP_MIN, max: CLAMP_MAX },
-	{ name: "marginY" as const, label: <Trans>Margin (Vertical)</Trans>, min: CLAMP_MIN, max: CLAMP_MAX },
-	{ name: "gapX" as const, label: <Trans>Spacing (Horizontal)</Trans>, min: 0, max: undefined },
-	{ name: "gapY" as const, label: <Trans>Spacing (Vertical)</Trans>, min: 0, max: undefined },
+	const pageNumberFields = [
+		{ name: "marginX" as const, label: <Trans>Margin (Horizontal)</Trans>, min: CLAMP_MIN, max: CLAMP_MAX },
+		{ name: "marginY" as const, label: <Trans>Margin (Vertical)</Trans>, min: CLAMP_MIN, max: CLAMP_MAX },
+		{ name: "gapX" as const, label: <Trans>Spacing (Horizontal)</Trans>, min: 0, max: undefined },
+		{ name: "gapY" as const, label: <Trans>Spacing (Vertical)</Trans>, min: 0, max: undefined },
 	];
 
 	const pageSwitchFields = [
@@ -156,8 +156,13 @@ const pageNumberFields = [
 											onBlur={field.handleBlur}
 											onChange={(e) => {
 												const v = e.target.value;
-												const raw = v === "" ? ("" as unknown as number) : Number(v);
-												const num = max !== undefined && typeof raw === "number" ? clamp(raw, min ?? 0, max) : raw;
+												// Ignore transient empty/invalid input so resume metadata stays numeric
+												if (v === "") return;
+
+												const raw = Number(v);
+												if (!Number.isFinite(raw)) return;
+
+												const num = max !== undefined ? clamp(raw, min ?? 0, max) : Math.max(raw, min ?? 0);
 												field.handleChange(num);
 												handleAutoSave(name, num);
 											}}
