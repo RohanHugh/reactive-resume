@@ -55,7 +55,12 @@ function PageSectionForm() {
 	useSyncFormValues(form, page);
 
 	const handleAutoSave = <K extends keyof FormValues>(name: K, value: FormValues[K]) => {
-		persist({ ...form.state.values, [name]: value });
+		const next = { ...form.state.values, [name]: value };
+		// Keep last-saved numeric page fields when the form holds a transient empty/NaN value
+		for (const key of ["marginX", "marginY", "gapX", "gapY"] as const) {
+			if (!Number.isFinite(next[key])) next[key] = page?.[key] ?? 0;
+		}
+		persist(next);
 	};
 
 	const pageNumberFields = [
@@ -148,7 +153,7 @@ function PageSectionForm() {
 									render={
 										<InputGroupInput
 											name={field.name}
-											value={field.state.value}
+											value={Number.isFinite(field.state.value) ? field.state.value : ""}
 											min={min}
 											{...(max !== undefined ? { max } : {})}
 											step={1}
@@ -156,8 +161,11 @@ function PageSectionForm() {
 											onBlur={field.handleBlur}
 											onChange={(e) => {
 												const v = e.target.value;
-												// Ignore transient empty/invalid input so resume metadata stays numeric
-												if (v === "") return;
+												if (v === "") {
+													// Allow clearing the controlled input without persisting invalid metadata
+													field.handleChange(Number.NaN);
+													return;
+												}
 
 												const raw = Number(v);
 												if (!Number.isFinite(raw)) return;
