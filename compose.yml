@@ -82,14 +82,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: unless-stopped
     networks:
       - data_network
       - storage_network
     ports:
-      - "3000:3000"
+      - "3005:3000"
     env_file:
-      - path: .env.example
-        required: false
+      - path: .env
+        required: true
     volumes:
       - ./data:/app/data
     depends_on:
