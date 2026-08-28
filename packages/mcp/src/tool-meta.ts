@@ -21,12 +21,6 @@ const READ_NON_IDEMPOTENT: ToolAnnotations = {
 	idempotentHint: false,
 	openWorldHint: false,
 };
-const READ_OPEN_WORLD_NON_IDEMPOTENT: ToolAnnotations = {
-	readOnlyHint: true,
-	destructiveHint: false,
-	idempotentHint: false,
-	openWorldHint: true,
-};
 const WRITE_NON_IDEMPOTENT: ToolAnnotations = {
 	readOnlyHint: false,
 	destructiveHint: false,
@@ -153,25 +147,23 @@ export const TOOL_META = {
 		inputSchema: z.object({ id: resumeIdSchema }),
 		annotations: READ_IDEMPOTENT,
 	},
-	[T.getResumeAnalysis]: {
-		title: "Get Resume Analysis",
-		description: [
-			"Returns the latest saved AI analysis for a resume (scorecard, strengths, suggestions), if any.",
-			"Analyses are created from the Reactive Resume web app AI flow, not from MCP.",
-			`Returns JSON or a short message if none exists. Use \`${T.listResumes}\` to find resume IDs.`,
-		].join("\n"),
-		inputSchema: z.object({ id: resumeIdSchema }),
-		annotations: READ_IDEMPOTENT,
-	},
 	[T.downloadResumePdf]: {
 		title: "Download Resume PDF",
 		description: [
-			"Create a short-lived authenticated URL for downloading a resume as a PDF.",
+			"Create a short-lived authenticated URL for downloading a resume or its visible cover letter as a PDF.",
 			"The URL expires in 10 minutes and should be used immediately.",
-			"Returns JSON containing: resumeId, name, downloadUrl, expiresAt, expiresInSeconds, contentType.",
+			"Set target to `cover-letter` to export the visible cover letter separately; omit it (or use `resume`) for the resume.",
+			"Returns JSON containing: resumeId, target, name, downloadUrl, expiresAt, expiresInSeconds, contentType.",
 			`Use \`${T.listResumes}\` first to find valid IDs.`,
 		].join("\n"),
-		inputSchema: z.object({ id: resumeIdSchema }),
+		inputSchema: z.object({
+			id: resumeIdSchema,
+			target: z
+				.enum(["resume", "cover-letter"])
+				.optional()
+				.default("resume")
+				.describe("Document to export. Default: resume."),
+		}),
 		annotations: READ_NON_IDEMPOTENT,
 	},
 	[T.createResume]: {
@@ -450,13 +442,9 @@ export const TOOL_META = {
 	},
 	[T.autofillApplicationFromJob]: {
 		title: "Autofill Application From Job",
-		description:
-			"Use AI to extract company, role, location, salary, and job description from a job URL or pasted posting.",
-		inputSchema: z.object({
-			sourceUrl: httpUrlSchema.optional(),
-			jobDescription: z.string().max(20_000).optional(),
-		}),
-		annotations: READ_OPEN_WORLD_NON_IDEMPOTENT,
+		description: "Use AI to extract company, role, location, and salary from a pasted job posting.",
+		inputSchema: z.object({ jobDescription: z.string().trim().min(1).max(20_000) }),
+		annotations: READ_NON_IDEMPOTENT,
 	},
 	[T.scoreApplicationMatch]: {
 		title: "Score Application Match",

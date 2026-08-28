@@ -8,7 +8,7 @@ msgstr ""
 "Language: fi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-30 14:30\n"
+"PO-Revision-Date: 2026-08-27 07:41\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -53,6 +53,24 @@ msgstr "{0} hakemusta seurannassa"
 msgid "{0} characters"
 msgstr "{0} merkkiä"
 
+#. placeholder {0}: report.passedChecks
+#. placeholder {1}: report.applicableChecks
+#: src/features/ats-checker/report/score-header.tsx
+msgid "{0} of {1} applicable checks passed"
+msgstr "{0} / {1} sovellettavasta tarkistuksesta läpäisty"
+
+#. placeholder {0}: category.passedChecks
+#. placeholder {1}: category.applicableChecks
+#: src/features/ats-checker/report/report-view.tsx
+msgid "{0} of {1} applicable checks passed."
+msgstr "{0} / {1} sovellettavasta tarkistuksesta läpäisty."
+
+#. placeholder {0}: jd.matchedCount
+#. placeholder {1}: jd.totalTerms
+#: src/features/ats-checker/report/jd-coverage.tsx
+msgid "{0} of {1} terms found"
+msgstr "{0} / {1} termistä löytyi"
+
 #. placeholder {0}: importable.length
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0} ready to import"
@@ -63,19 +81,49 @@ msgstr "{0} valmiina tuotavaksi"
 msgid "{0} rejected"
 msgstr "{0} hylätty"
 
+#. placeholder {0}: report.skippedChecks
+#: src/features/ats-checker/report/score-header.tsx
+msgid "{0} skipped"
+msgstr "{0} ohitettu"
+
 #. placeholder {0}: parsed.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0} skipped (missing company/role)"
 msgstr "{0} ohitettu (yritys/rooli puuttuu)"
+
+#. placeholder {0}: findings.length
+#: src/features/ats-checker/report/report-view.tsx
+msgid "{0} to fix"
+msgstr "{0} korjattavaa"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "{column, plural, one {# Column} other {# Columns}}"
 msgstr "{column, plural, one {# sarake} other {# saraketta}}"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "{count, plural, one {# error} other {# errors}}"
+msgstr "{count, plural, one {# virhe} other {# virheitä}}"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "{count, plural, one {# note} other {# notes}}"
+msgstr "{count, plural, one {# nuotti} other {# nuotteja}}"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "{count, plural, one {# warning} other {# warnings}}"
+msgstr "{count, plural, one {# varoitus} other {# varoitukset}}"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "{label} over the last 30 days"
 msgstr "{label} viimeisten 30 päivän aikana"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "{passedRules} of {totalRules} checks passed"
+msgstr "{passedRules} / {totalRules} tarkistuksesta läpäisty"
+
+#: src/libs/resume/ats.ts
+msgid "{sectionTitle} · Item {itemNumber}"
+msgstr "{sectionTitle} · Esine {itemNumber}"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -110,9 +158,29 @@ msgstr "3 kuukautta"
 msgid "6 months"
 msgstr "6 kuukautta"
 
+#: src/features/ats-checker/parse-preview.tsx
+msgid "A clean single-column export keeps every fact. Columns and images are where they get lost."
+msgstr "Siisti yksisarakkeinen vienti säilyttää jokaisen tiedon. Sarakkeet ja kuvat ovat se, mihin tiedot katoavat."
+
 #: src/features/settings/pages/profile.tsx
 msgid "A confirmation link has been sent to your current email address. Please check your inbox to confirm the change."
 msgstr "Vahvistuslinkki on lähetetty nykyiseen sähköpostiosoitteeseesi. Tarkista postilaatikkosi vahvistaaksesi muutoksen."
+
+#: src/features/ats-checker/messages.ts
+msgid "A date is in the future."
+msgstr "Päivämäärä on tulevaisuudessa."
+
+#: src/features/ats-checker/messages.ts
+msgid "A date range ends before it starts."
+msgstr "Päivämääräväli päättyy ennen kuin se alkaa."
+
+#: src/features/ats-checker/messages.ts
+msgid "A date range is written in a form most software cannot read."
+msgstr "Päivämääräväli on kirjoitettu muodossa, jota useimmat ohjelmistot eivät osaa lukea."
+
+#: src/features/ats-checker/messages.ts
+msgid "A font is referenced but not embedded."
+msgstr "Fonttiin viitataan, mutta sitä ei ole upotettu."
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
@@ -121,6 +189,18 @@ msgstr "Ilmainen ja avoimen lähdekoodin ansioluettelon laatija, joka helpottaa 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "A friendly nudge for the recruiter"
 msgstr "Ystävällinen muistutus rekrytoijalle"
+
+#: src/features/ats-checker/messages.ts
+msgid "A full-height gap splits this page into two columns."
+msgstr "Koko sivun korkuinen väli jakaa tämän sivun kahteen sarakkeeseen."
+
+#: src/features/ats-checker/messages.ts
+msgid "A gap is not a problem. Add a one-line explanation if you want to; many strong resumes simply do not."
+msgstr "Aukko ei ole ongelma. Lisää halutessasi yhden rivin selitys; monissa vahvoissa ansioluetteloissa sitä ei yksinkertaisesti ole."
+
+#: src/features/ats-checker/messages.ts
+msgid "A link points somewhere other than the address it shows."
+msgstr "Linkki osoittaa muualle kuin sen näyttämään osoitteeseen."
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
@@ -135,13 +215,29 @@ msgstr "Monet ihmiset ovat vuosien varrella kirjoittaneet minulle jakaakseen kok
 msgid "A new verification link has been sent to your email address. Please check your inbox to verify your account."
 msgstr "Uusi vahvistuslinkki on lähetetty sähköpostiosoitteeseesi. Tarkista postilaatikkosi vahvistaaksesi tilisi."
 
+#: src/features/ats-checker/messages.ts
+msgid "A numeric date reads differently in different countries."
+msgstr "Numeerinen päivämäärä tulkitaan eri tavoin eri maissa."
+
+#: src/features/ats-checker/messages.ts
+msgid "A page is rotated."
+msgstr "Sivu on käännetty."
+
 #: src/components/ui/copyright.tsx
 msgid "A passion project by <0>Amruth Pillai</0>."
 msgstr "Rakkaudella tehty projekti, jonka on luonut <0>Amruth Pillai</0>."
 
+#: src/features/ats-checker/parse-preview.tsx
+msgid "A resume laid out for a human reader, with a photo, headings and columns"
+msgstr "Ihmislukijalle aseteltu ansioluettelo, jossa on valokuva, otsikot ja sarakkeet"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "A stretch"
 msgstr "Haastava tavoite"
+
+#: src/features/ats-checker/messages.ts
+msgid "A web address is written without https://."
+msgstr "Verkko-osoite on kirjoitettu ilman https://-etuliitettä."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "A4"
@@ -154,6 +250,12 @@ msgstr "Ehdottomasti! Voit viedä ansioluettelosi PDF-muotoon yhdellä klikkauks
 #: src/routes/_home/-sections/features.tsx
 msgid "Access your resumes and data programmatically using the API."
 msgstr "Käytä ansioluetteloitasi ja tietojasi ohjelmallisesti rajapinnan (API:n) kautta."
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/account.tsx
+msgid "Account"
+msgstr "Tili"
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Account menu"
@@ -254,9 +356,25 @@ msgstr "Lisää uusi vapaaehtoistyökokemus"
 msgid "Add a note…"
 msgstr "Lisää muistiinpano…"
 
+#: src/libs/resume/ats.ts
+msgid "Add a period such as \"Jan 2020 - Present\" so it lands on your timeline."
+msgstr "Add a period such as \\\"Jan 2020 - Present\\\" so it lands on your timeline."
+
+#: src/features/ats-checker/messages.ts
+msgid "Add a section headed \"Education\". Many systems have a required education field."
+msgstr "Lisää osio otsikolla \"Education\". Monissa järjestelmissä koulutus on pakollinen kenttä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Add a section headed \"Experience\" or \"Work Experience\". It is the field most systems rank on."
+msgstr "Lisää osio otsikolla \"Experience\" tai \"Work Experience\". Se on kenttä, jonka perusteella useimmat järjestelmät pisteyttävät."
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add a tag and press Enter…"
 msgstr "Lisää tunniste ja paina Enter…"
+
+#: src/libs/resume/ats.ts
+msgid "Add an entry, or use projects and volunteer work to show equivalent history."
+msgstr "Lisää merkintä tai käytä projekteja ja vapaaehtoistyötä vastaavan historian näyttämiseen."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Add and test a provider before starting an agent thread."
@@ -268,9 +386,17 @@ msgstr "Lisää ja testaa toimittaja ennen agenttiketjun aloittamista."
 msgid "Add application"
 msgstr "Lisää hakemus"
 
+#: src/libs/resume/ats.ts
+msgid "Add at least a city and country so roles can be matched to your region."
+msgstr "Lisää ainakin kaupunki ja maa, jotta roolit voidaan sovittaa alueellesi."
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Add contact"
 msgstr "Lisää yhteyshenkilö"
+
+#: src/features/ats-checker/messages.ts
+msgid "Add figures where you have them: volumes, percentages, timeframes, team sizes."
+msgstr "Lisää lukuja, jos sinulla on niitä: määriä, prosentteja, aikatauluja, tiimien kokoja."
 
 #: src/components/input/chip-input.tsx
 msgid "Add keyword"
@@ -285,6 +411,14 @@ msgstr "Lisää linkki"
 msgid "Add multiple roles to show career progression at the same company."
 msgstr "Lisää useita rooleja näyttääksesi uraetenemisen samassa yrityksessä."
 
+#: src/features/ats-checker/messages.ts
+msgid "Add one link that shows your work."
+msgstr "Lisää yksi linkki, joka näyttää työsi."
+
+#: src/features/ats-checker/messages.ts
+msgid "Add one with its country code; some application forms require it before you can submit."
+msgstr "Lisää sellainen maakoodin kanssa; jotkin hakulomakkeet vaativat sitä ennen lähettämistä."
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
 msgstr "Lisää sivu"
@@ -297,6 +431,10 @@ msgstr "Lisää palveluntarjoaja"
 msgid "Add Role"
 msgstr "Lisää rooli"
 
+#: src/features/ats-checker/messages.ts
+msgid "Add some whitespace between sections so a person can skim it."
+msgstr "Lisää tyhjää tilaa osioiden väliin, jotta ihminen voi silmäillä sitä."
+
 #: src/features/applications/components/table-view.tsx
 msgid "Add tag"
 msgstr "Lisää tunniste"
@@ -304,6 +442,14 @@ msgstr "Lisää tunniste"
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add to pipeline"
 msgstr "Lisää putkeen"
+
+#: src/features/ats-checker/messages.ts
+msgid "Add two or three lines at the top describing what you do."
+msgstr "Lisää alkuun kaksi tai kolme riviä, jotka kuvaavat, mitä teet."
+
+#: src/libs/resume/ats.ts
+msgid "Add your full name under Basics."
+msgstr "Lisää koko nimesi kohtaan Perustiedot."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Adjust the resume for a remote-first role that values async communication and ownership."
@@ -313,9 +459,17 @@ msgstr "Muokkaa ansioluetteloasi etätyöhön keskittyvään rooliin, jossa arvo
 msgid "Advanced"
 msgstr "Edistynyt"
 
+#: src/features/ats-checker/messages.ts
+msgid "Advice for the person reading it. None of this affects the score."
+msgstr "Neuvoja sen lukevalle ihmiselle. Mikään näistä ei vaikuta pisteisiin."
+
 #: src/libs/locale.ts
 msgid "Afrikaans"
 msgstr "afrikaans"
+
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
+msgid "Against the job description"
+msgstr "Verrattuna työnkuvaukseen"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -346,6 +500,10 @@ msgstr "Tekoälyagentin asetukset eivät ole käytettävissä, ennen kuin REDIS_
 msgid "AI assistant"
 msgstr "Tekoälyavustaja"
 
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "AI provider"
+msgstr "Tekoälypalveluntarjoaja"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "AI provider management is unavailable until REDIS_URL and ENCRYPTION_SECRET are configured."
 msgstr "Tekoälypalveluntarjoajien hallinta ei ole käytettävissä, ennen kuin REDIS_URL ja ENCRYPTION_SECRET on määritetty."
@@ -357,6 +515,10 @@ msgstr "Tekoälypalveluntarjoajien hallinta ei ole käytettävissä. Yritä uude
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "AI Providers"
 msgstr "Tekoälypalveluntarjoajat"
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "AI providers are unavailable until ENCRYPTION_SECRET is configured."
+msgstr "Tekoälypalveluntarjoajat eivät ole käytettävissä, ennen kuin ENCRYPTION_SECRET on määritetty."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "AI providers require REDIS_URL and ENCRYPTION_SECRET to be configured."
@@ -370,6 +532,14 @@ msgstr "albania"
 msgid "Allow Public Access"
 msgstr "Salli julkinen käyttö"
 
+#: src/features/ats-checker/messages.ts
+msgid "Almost none of your bullets carry a number."
+msgstr "Lähes yhdessäkään luettelokohdassasi ei ole numeroa."
+
+#: src/features/ats-checker/report/jd-coverage.tsx
+msgid "Already covered"
+msgstr "Jo katettu"
+
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "Onko sinulla jo tili? <0/>"
@@ -377,6 +547,10 @@ msgstr "Onko sinulla jo tili? <0/>"
 #: src/libs/locale.ts
 msgid "Amharic"
 msgstr "amhara"
+
+#: src/features/ats-checker/messages.ts
+msgid "An embedded font could not be read."
+msgstr "Upotettua fonttia ei voitu lukea."
 
 #: src/components/layout/error-screen.tsx
 msgid "An unexpected error stopped this page from loading. You can try again or head back."
@@ -387,17 +561,13 @@ msgstr "Odottamaton virhe esti sivun latautumisen. Voit yrittää uudelleen tai 
 msgid "An unknown error occurred while importing your resume."
 msgstr "Ansioluettelosi tuonnissa tapahtui tuntematon virhe."
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyze Resume"
-msgstr "Analysoi ansioluettelo"
-
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Analyzing…"
-msgstr "Analysoidaan…"
-
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
 msgstr "Ja paljon muuta..."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Answer in your own words"
+msgstr "Vastaa omin sanoin"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Anthropic Claude"
@@ -486,7 +656,6 @@ msgid "Applications sent per week (last 8 weeks)"
 msgstr "Lähetetyt hakemukset viikoittain (viimeiset 8 viikkoa)"
 
 #: src/features/applications/components/table-view.tsx
-#: src/features/resume/stylesheet/status.tsx
 msgid "Applied"
 msgstr "Haettu"
 
@@ -494,13 +663,13 @@ msgstr "Haettu"
 msgid "Applied on"
 msgstr "Haettu"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
-msgid "Applied Rules"
-msgstr "Sovelletut säännöt"
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approve"
+msgstr "Hyväksy"
 
-#: src/features/resume/stylesheet/status.tsx
-msgid "Applied with warnings"
-msgstr "Käytetty varoituksilla"
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Approved — waiting for the agent…"
+msgstr "Hyväksytty — odotetaan agenttia…"
 
 #: src/libs/locale.ts
 msgid "Arabic"
@@ -539,7 +708,7 @@ msgstr "Haluatko varmasti poistaa tämän kohteen?"
 msgid "Are you sure you want to delete this resume?"
 msgstr "Haluatko varmasti poistaa tämän ansioluettelon?"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Are you sure you want to delete your account?"
 msgstr "Haluatko varmasti poistaa tilisi?"
 
@@ -576,6 +745,16 @@ msgstr "Kuvasuhde"
 msgid "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
 msgstr "Atlas Cloud tukee Reactive Resumea projektin sponsorina. Jos yrityksesi haluaa sponsoroida projektia, lähetä sähköpostia osoitteeseen <0>{sponsorshipEmail}</0> ."
 
+#: src/libs/resume/section.tsx
+msgid "ATS Check"
+msgstr "ATS-tarkastus"
+
+#: src/routes/_home/-sections/features.tsx
+#: src/routes/_home/ats-checker.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+msgid "ATS Checker"
+msgstr "ATS-tarkistus"
+
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Attach a cover letter (PDF)"
@@ -604,16 +783,16 @@ msgid "Authentication"
 msgstr "Todennus"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill"
-msgstr "Automaattinen täyttö"
-
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Auto-fill failed. Paste the description instead."
-msgstr "Automaattinen täyttö epäonnistui. Liitä kuvaus sen sijaan."
+msgid "Auto-fill failed."
+msgstr "Automaattinen täyttö epäonnistui."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Available in multiple languages. If you would like to contribute, check out Crowdin."
 msgstr "Saatavana useilla kielillä. Jos haluat osallistua, tutustu Crowdiniin."
+
+#: src/features/ats-checker/messages.ts
+msgid "Avoid heavy letter-spacing effects, then re-export."
+msgstr "Vältä voimakkaita kirjainvälistystehosteita ja vie tiedosto uudelleen."
 
 #: src/dialogs/resume/sections/award.tsx
 msgctxt "(noun) person, organization, or entity that gives an award"
@@ -630,6 +809,11 @@ msgstr "Palkinnot"
 msgid "Azerbaijani"
 msgstr "azeri"
 
+#. Action returning a signed-in user to the page where they manage linked providers
+#: src/features/auth/pages/error.tsx
+msgid "Back to authentication settings"
+msgstr "Takaisin todennusasetuksiin"
+
 #. Secondary navigation button on 2FA verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Back to Login"
@@ -638,6 +822,11 @@ msgstr "Takaisin kirjautumiseen"
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Back to resumes"
 msgstr "Takaisin ansioluetteloihin"
+
+#. Action returning the visitor to the sign-in page after a failed sign-in
+#: src/features/auth/pages/error.tsx
+msgid "Back to sign in"
+msgstr "Takaisin kirjautumiseen"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Background Color"
@@ -671,6 +860,10 @@ msgstr "Paras sovelluksiin, jakamiseen ja tulostamiseen."
 msgid "Blank draft"
 msgstr "Tyhjä luonnos"
 
+#: src/features/ats-checker/messages.ts
+msgid "Blocker"
+msgstr "Este"
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "Board"
 msgstr "Taulu"
@@ -691,6 +884,10 @@ msgstr "Reunapyöristys"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Border Width"
 msgstr "Reunan leveys"
+
+#: src/features/ats-checker/messages.ts
+msgid "Break the resume into the usual sections so it can be segmented."
+msgstr "Jaa ansioluettelo tavanomaisiin osioihin, jotta se voidaan segmentoida."
 
 #: src/features/resume/public/public-resume.tsx
 msgid "Build your own resume"
@@ -729,7 +926,7 @@ msgid "Can I export my resume to PDF?"
 msgstr "Voinko viedä ansioluetteloni PDF-muotoon?"
 
 #. API key deletion confirmation dialog cancel action in settings
-#. Account deletion confirmation dialog cancel action in danger zone
+#. Account deletion confirmation dialog cancel action in account settings
 #. Confirmation dialog button label to abort deleting a custom section in resume builder
 #. Confirmation dialog button label to abort deleting a section item in resume builder
 #. Confirmation dialog button label to abort resetting a resume section
@@ -742,8 +939,8 @@ msgstr "Voinko viedä ansioluetteloni PDF-muotoon?"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
+#: src/features/settings/pages/account.tsx
 #: src/features/settings/pages/api-keys.tsx
-#: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -801,6 +998,14 @@ msgstr "Muutosloki"
 msgid "Chat"
 msgstr "Chat"
 
+#: src/features/ats-checker/tool.tsx
+msgid "Check again"
+msgstr "Tarkista uudelleen"
+
+#: src/features/ats-checker/messages.ts
+msgid "Check the exported file contains everything you expect, and that all of it is selectable text."
+msgstr "Tarkista, että viety tiedosto sisältää kaiken odottamasi ja että kaikki siinä on valittavissa olevaa tekstiä."
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Check your email for a link to reset your password."
 msgstr "Tarkista sähköpostisi linkin löytämiseksi salasanan palauttamiseksi."
@@ -809,6 +1014,10 @@ msgstr "Tarkista sähköpostisi linkin löytämiseksi salasanan palauttamiseksi.
 msgid "Check your email for a link to verify your account."
 msgstr "Tarkista sähköpostisi linkin löytämiseksi tilisi vahvistamiseksi."
 
+#: src/features/ats-checker/uploader.tsx
+msgid "Checked in your browser. The file is never uploaded."
+msgstr "Tarkistettu selaimessasi. Tiedostoa ei koskaan ladata palvelimelle."
+
 #: src/features/resume/stylesheet/status.tsx
 msgid "Checking"
 msgstr "Tarkistetaan"
@@ -816,6 +1025,10 @@ msgstr "Tarkistetaan"
 #: src/features/resume/stylesheet/status.tsx
 msgid "Checking draft"
 msgstr "Luonnoksen tarkistaminen"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Checking…"
+msgstr "Tarkistetaan…"
 
 #: src/libs/locale.ts
 msgid "Chinese (Simplified)"
@@ -828,6 +1041,10 @@ msgstr "kiina (perinteinen)"
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Choose a model and resume draft."
 msgstr "Valitse malli ja ansioluettelon luonnos."
+
+#: src/features/ats-checker/uploader.tsx
+msgid "Choose a PDF"
+msgstr "Valitse PDF"
 
 #. Preset or custom shade refer to the color picker
 #. Preset or custom shade refer to the color picker
@@ -883,6 +1100,10 @@ msgstr "Koheroitua"
 msgid "Columns"
 msgstr "Sarakkeet"
 
+#: src/libs/resume/ats.ts
+msgid "Columns commonly scramble the order text is read in. Set it to a single column."
+msgstr "Sarakkeet sekoittavat yleensä tekstin lukujärjestyksen. Aseta se yhdeksi sarakkeeksi."
+
 #. Accessible label for command list region inside command palette
 #. Accessible label for the command palette dialog
 #: src/features/command-palette/index.tsx
@@ -919,10 +1140,14 @@ msgstr "Vertaa tätä ansioluetteloa tämän roolin URL-osoitteeseen ja päivit�
 msgid "Completely free, forever, no hidden costs."
 msgstr "Täysin ilmainen, ikuisesti, ei piilokuluja."
 
-#. Account deletion confirmation dialog confirm action in danger zone
+#: src/features/ats-checker/messages.ts
+msgid "Compress or remove large images to keep uploads quick."
+msgstr "Pakkaa tai poista suuria kuvia, jotta lataukset pysyvät nopeina."
+
+#. Account deletion confirmation dialog confirm action in account settings
 #. Create API key dialog acknowledgment action after copying
 #: src/dialogs/api-key/create.tsx
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Confirm"
@@ -933,6 +1158,10 @@ msgstr "Vahvista"
 msgid "Connect"
 msgstr "Yhdistä"
 
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Connect your own AI provider to get a review of the writing. The checks above need no provider and no account."
+msgstr "Yhdistä oma tekoälypalveluntarjoajasi saadaksesi arvion kirjoituksesta. Yllä olevat tarkistukset eivät vaadi palveluntarjoajaa tai tiliä."
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connected"
 msgstr "Yhdistetty"
@@ -942,8 +1171,16 @@ msgid "Connection failed"
 msgstr "Yhteys epäonnistui"
 
 #: src/features/settings/integrations/components/ai-section.tsx
+msgid "Connection failed."
+msgstr "Yhteys epäonnistui."
+
+#: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
 msgstr "Yhteys vahvistettu — palveluntarjoaja on käyttövalmis."
+
+#: src/features/ats-checker/messages.ts
+msgid "Contact details"
+msgstr "Yhteystiedot"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Contacts"
@@ -953,6 +1190,10 @@ msgstr "Yhteystiedot"
 #: src/dialogs/resume/sections/summary-item.tsx
 msgid "Content"
 msgstr "Sisältö"
+
+#: src/features/ats-checker/messages.ts
+msgid "Content is laid out in a grid."
+msgstr "Sisältö on aseteltu ruudukkoon."
 
 #. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
@@ -1010,9 +1251,22 @@ msgstr "Kopioi varmuuskoodit"
 msgid "Copy JSON"
 msgstr "Kopioi JSON"
 
+#. Accessible label for the button that copies the two-factor secret key
+#: src/dialogs/auth/enable-two-factor.tsx
+msgid "Copy secret"
+msgstr "Kopioi salaisuus"
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Copy stylesheet"
 msgstr "Kopioi tyylitiedosto"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Copy the entire job description from the posting and paste it below. We'll fill in the fields for you and keep the text with this application for match scoring and tailoring."
+msgstr "Kopioi koko työnkuvaus ilmoituksesta ja liitä se alle. Täytämme kentät puolestasi ja tallennamme tekstin tämän hakemuksen yhteyteen osuvuuden pisteytystä ja räätälöintiä varten."
+
+#: src/features/ats-checker/messages.ts
+msgid "Copy the text out of the exported file and read it through; fix anything that arrives in the wrong place."
+msgstr "Kopioi teksti viedystä tiedostosta ja lue se läpi; korjaa kaikki, mikä päätyy väärään paikkaan."
 
 #: src/dialogs/api-key/create.tsx
 msgid "Copy this secret key and use it in your applications to access your data."
@@ -1023,10 +1277,16 @@ msgstr "Kopioi tämä salainen avain ja käytä sitä sovelluksissasi tietojesi 
 msgid "Copy URL"
 msgstr "Kopioi URL-osoite"
 
-#. Error description when AI provider cannot be reached during resume analysis
+#: src/libs/resume/ats.ts
+msgid "Correct the year, or use \"Present\" for ongoing work."
+msgstr "Correct the year, or use \\\"Present\\\" for ongoing work."
+
+#: src/features/ats-checker/messages.ts
+msgid "Correct the year, or write \"Present\" for ongoing work."
+msgstr "Korjaa vuosi tai kirjoita \"Present\" jatkuvalle työlle."
+
 #. Error shown when AI provider is unreachable during PDF/DOCX resume import
 #: src/dialogs/resume/import.tsx
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "Tekoälypalvelun tarjoajaa ei tavoitettu. Yritä uudelleen."
 
@@ -1082,6 +1342,10 @@ msgstr "Tiedostoa ei voitu ladata. Yritä uudelleen."
 #: src/features/applications/components/insights-view.tsx
 msgid "Count by source"
 msgstr "Määrä lähteen mukaan"
+
+#: src/features/ats-checker/report/jd-coverage.tsx
+msgid "Counted separately from the parse score. Coverage is not a prediction of anything."
+msgstr "Lasketaan erikseen jäsennyspisteistä. Kattavuus ei ennusta mitään."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
@@ -1280,12 +1544,6 @@ msgstr "Mukautetut tyylit"
 msgid "Czech"
 msgstr "tšekki"
 
-#: src/features/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/danger-zone.tsx
-msgid "Danger Zone"
-msgstr "Vaaravyöhyke"
-
 #: src/libs/locale.ts
 msgid "Danish"
 msgstr "tanska"
@@ -1318,6 +1576,11 @@ msgstr "Päivämäärä"
 msgid "Date applied"
 msgstr "Hakupäivä"
 
+#: src/features/ats-checker/messages.ts
+#: src/features/ats-checker/parse-preview.tsx
+msgid "Dates"
+msgstr "Päivämäärät"
+
 #: src/components/input/rich-input.tsx
 msgid "Decrease indent"
 msgstr "Pienennä sisennystä"
@@ -1325,6 +1588,10 @@ msgstr "Pienennä sisennystä"
 #: src/routes/agent/-components/resume-pane.tsx
 msgid "Decrease zoom"
 msgstr "Pienennä zoomausta"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Deep check"
+msgstr "Syvätarkistus"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "DeepSeek"
@@ -1355,9 +1622,14 @@ msgstr "Tutkinto"
 msgid "Delete"
 msgstr "Poista"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Delete Account"
 msgstr "Poista tili"
+
+#: src/features/ats-checker/messages.ts
+msgid "Delete it. Hidden keywords are treated as a deliberate attempt to game the search."
+msgstr "Poista se. Piilotettuja avainsanoja pidetään tarkoituksellisena yrityksenä huijata hakua."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Delete Page"
@@ -1394,7 +1666,7 @@ msgstr "Poista aikajanamerkintä"
 msgid "Deleted {0} application(s)."
 msgstr "Poistettiin {0} hakemus(ta)."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Deleting your account..."
 msgstr "Poistetaan tiliäsi..."
 
@@ -1406,6 +1678,22 @@ msgstr "Poistetaan API-avaintasi..."
 #: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Deleting your resume..."
 msgstr "Poistetaan ansioluetteloasi..."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Denied — waiting for the agent…"
+msgstr "Hylätty — odotetaan agenttia…"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Deny"
+msgstr "Hylkää"
+
+#: src/features/ats-checker/messages.ts
+msgid "Describe each role with short bullets. Solid paragraphs are harder to skim and to segment."
+msgstr "Kuvaile jokainen rooli lyhyillä luettelokohdilla. Yhtenäisiä kappaleita on vaikeampi silmäillä ja segmentoida."
+
+#: src/libs/resume/ats.ts
+msgid "Describe what you did so the entry contributes keywords for matching."
+msgstr "Kuvaile mitä teit, jotta merkintä antaa avainsanat hakua varten."
 
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -1422,6 +1710,11 @@ msgstr "Kuvaus"
 #: src/routes/builder/$resumeId/-components/mobile-builder-shell.tsx
 msgid "Design"
 msgstr "Ulkoasu"
+
+#. Label above the raw error text forwarded by the identity provider
+#: src/features/auth/pages/error.tsx
+msgid "Details from the provider:"
+msgstr "Tiedot palveluntarjoajalta:"
 
 #. Destructive action button to turn off two-factor authentication
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -1446,7 +1739,6 @@ msgstr "Katkaise yhteys"
 msgid "Discord"
 msgstr "Discord"
 
-#: src/components/ui/donation-toast.tsx
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Dismiss"
 msgstr "Hylkää"
@@ -1472,6 +1764,10 @@ msgstr "Lahjoittaa"
 msgid "Donate to Reactive Resume"
 msgstr "Lahjoita Reactive Resumelle"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Done"
+msgstr "Valmis"
+
 #. Action button to download two-factor backup codes as a text file
 #. Primary action in the builder header to open resume download options
 #: src/dialogs/auth/enable-two-factor.tsx
@@ -1481,7 +1777,7 @@ msgstr "Lahjoita Reactive Resumelle"
 msgid "Download"
 msgstr "Lataa"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Lataa kopio kaikista tiedoistasi, mukaan lukien profiilisi ja jokainen ansioluettelosi, JSON-tiedostona."
 
@@ -1518,6 +1814,10 @@ msgstr "Vedä ja pudota osiot tänne siirtääksesi niitä sarakkeiden välillä
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Drag to reposition and use the slider to zoom before uploading."
 msgstr "Siirrä sijaintia vetämällä ja zoomaa liukusäätimellä ennen lataamista."
+
+#: src/features/ats-checker/messages.ts
+msgid "Drop the pronouns and start from the verb. That is the convention in most markets."
+msgstr "Jätä pronominit pois ja aloita verbistä. Se on käytäntö useimmilla markkinoilla."
 
 #. Resume card context menu action to create a copy
 #. Resume card dropdown action to create a copy
@@ -1584,6 +1884,10 @@ msgstr "Muokkaa sisältöä koko näytön tilassa"
 msgid "Edit date"
 msgstr "Muokkaa päivämäärää"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Edit declined"
+msgstr "Muokkaus hylätty"
+
 #. Resume card context menu action to edit resume metadata
 #. Resume card dropdown action to edit resume metadata
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -1639,6 +1943,10 @@ msgstr "Sähköpostiosoite"
 #: src/features/settings/pages/profile.tsx
 msgid "Email delivery isn't configured on this instance, so verification is disabled."
 msgstr "Sähköpostin toimitusta ei ole määritetty tässä tapauksessa, joten vahvistus on poistettu käytöstä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Embed all fonts when exporting, so characters map the way you intended."
+msgstr "Upota kaikki fontit vietäessä, jotta merkit vastaavat tarkoitustasi."
 
 #: src/features/settings/authentication/components/two-factor.tsx
 msgid "Enable 2FA"
@@ -1704,9 +2012,13 @@ msgstr "Syötä salasanasi vahvistaaksesi kaksivaiheisen todennuksen käyttöön
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "Syötä salasanasi poistaaksesi kaksivaiheisen todennuksen käytöstä. Tilisi on vähemmän suojattu ilman 2FA:ta."
 
-#: src/features/resume/stylesheet/status.tsx
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Error"
 msgstr "Virhe"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Every check passed. Nothing here should stop a parser from reading your resume."
+msgstr "Jokainen tarkistus meni läpi. Mikään tässä ei saa estää jäsentäjää lukemasta ansioluetteloasi."
 
 #: src/routes/_home/-sections/donate.tsx
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
@@ -1734,7 +2046,7 @@ msgstr "Työkokemus"
 msgid "Expires in"
 msgstr "Vanhenee"
 
-#. placeholder {0}: key.expiresAt?.toLocaleDateString()
+#. placeholder {0}: key.expiresAt.toLocaleDateString()
 #: src/features/settings/pages/api-keys.tsx
 msgid "Expires on {0}"
 msgstr "Vanhenee {0}"
@@ -1751,13 +2063,25 @@ msgstr "Tutustu API-dokumentaatioon nähdäksesi, miten yhdistät Reactive Resum
 msgid "Export"
 msgstr "Vienti"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Export Data"
+msgstr "Vie tiedot"
+
+#: src/features/ats-checker/messages.ts
+msgid "Export from the original document instead of scanning or screenshotting it."
+msgstr "Vie tiedosto alkuperäisestä asiakirjasta sen sijaan, että skannaisit tai kuvakaappaisit sen."
+
+#: src/features/settings/pages/account.tsx
 msgid "Export my data"
 msgstr "Vie tietoni"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Export PNG"
 msgstr "Vie PNG"
+
+#: src/features/ats-checker/messages.ts
+msgid "Export the resume as a text PDF rather than as an image or a scan."
+msgstr "Vie ansioluettelo tekstimuotoisena PDF:nä kuvan tai skannauksen sijaan."
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Export your resume or cover letter in the format you need."
@@ -1771,9 +2095,9 @@ msgstr "Vie ansioluettelosi PDF-muotoon välittömästi, ilman odottelua tai vii
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png viety"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Failed to analyze resume."
-msgstr "Epäonnistuin analysoimaan ansioluetteloa."
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Failed"
+msgstr "Epäonnistui"
 
 #: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
@@ -1810,7 +2134,7 @@ msgid "Failed to delete thread."
 msgstr "Ketjun poistaminen epäonnistui."
 
 #. Fallback toast when account deletion fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to delete your account. Please try again."
 msgstr "Tilisi poistaminen epäonnistui. Yritä uudelleen."
 
@@ -1825,7 +2149,7 @@ msgid "Failed to enable two-factor authentication. Please try again."
 msgstr "Kahden tekijän todennuksen käyttöönotto epäonnistui. Yritä uudelleen."
 
 #. Fallback toast when data export fails
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Failed to export your data. Please try again."
 msgstr "Tietojesi vienti epäonnistui. Yritä uudelleen."
 
@@ -1858,6 +2182,10 @@ msgstr "Vahvistussähköpostia ei onnistuttu lähettämään uudelleen. Yritä u
 #: src/features/auth/pages/reset-password.tsx
 msgid "Failed to reset your password. Please try again."
 msgstr "Salasanan palauttaminen epäonnistui. Yritä uudelleen."
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Failed to review this resume."
+msgstr "Tämän ansioluettelon arviointi epäonnistui."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Failed to save AI provider."
@@ -1901,6 +2229,10 @@ msgstr "Palveluntarjoajan linkityksen poistaminen epäonnistui. Yritä uudelleen
 msgid "Failed to update provider."
 msgstr "Palveluntarjoajan päivittäminen epäonnistui."
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Failed to update thread settings."
+msgstr "Ketjun asetusten päivitys epäonnistui."
+
 #. Fallback toast when changing account password fails
 #: src/dialogs/auth/change-password.tsx
 msgid "Failed to update your password. Please try again."
@@ -1937,6 +2269,10 @@ msgstr "Varmuuskopiointikoodin vahvistaminen epäonnistui. Yritä uudelleen."
 msgid "Failed to verify your code. Please try again."
 msgstr "Koodiasi ei onnistuttu tarkistamaan. Yritä uudelleen."
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Fatal error"
+msgstr "Vakava virhe"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
 msgstr "Ominaisuudet"
@@ -1944,6 +2280,10 @@ msgstr "Ominaisuudet"
 #: src/dialogs/resume/import.tsx
 msgid "File"
 msgstr "Tiedosto"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Fill fields"
+msgstr "Täytä kentät"
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Filled in what we could from the posting."
@@ -1972,6 +2312,10 @@ msgstr "Ilotulitus"
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Fit to view"
 msgstr "Sovita näkymään"
+
+#: src/features/ats-checker/messages.ts
+msgid "Flatten the form so the text is part of the page."
+msgstr "Litistä lomake, jotta teksti on osa sivua."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Flexibility"
@@ -2089,14 +2433,6 @@ msgstr "Luo satunnainen nimi"
 msgid "German"
 msgstr "saksa"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Get a review of your resume with an overall score, strengths, and actionable suggestions."
-msgstr "Saat ansioluettelostasi katsauksen, joka sisältää kokonaispisteet, vahvuudet ja toimintaehdotukset."
-
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Get an in-depth AI-powered review of your resume with an overall score, key strengths, and practical suggestions. To activate this feature, please update your AI settings."
-msgstr "Saat ansioluettelostasi perusteellisen tekoälypohjaisen katsauksen, joka sisältää kokonaisarvosanan, tärkeimmät vahvuudet ja käytännön ehdotuksia. Voit aktivoida tämän ominaisuuden päivittämällä tekoälyasetukset."
-
 #: src/routes/_home/-sections/hero.tsx
 msgid "Get Started"
 msgstr "Aloita"
@@ -2108,6 +2444,14 @@ msgstr "Aloita"
 #: src/routes/_home/-sections/footer.tsx
 msgid "GitHub"
 msgstr "GitHub"
+
+#: src/features/ats-checker/messages.ts
+msgid "Give every role a period, such as \"Jan 2020 - Present\", so your timeline can be reconstructed."
+msgstr "Anna jokaiselle roolille ajanjakso, kuten \"Jan 2020 - Present\", jotta aikajanasi voidaan muodostaa."
+
+#: src/features/ats-checker/messages.ts
+msgid "Give every role and qualification a date range."
+msgstr "Anna jokaiselle roolille ja pätevyydelle päivämääräväli."
 
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
@@ -2197,6 +2541,7 @@ msgstr "Otsikko 5"
 msgid "Heading 6"
 msgstr "Otsikko 6"
 
+#: src/features/ats-checker/parse-preview.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 msgid "Headline"
 msgstr "Kuvausteksti"
@@ -2267,10 +2612,9 @@ msgstr "Piilota kuva"
 msgid "Hide Section Icons"
 msgstr "Piilota osiokuvakkeet"
 
-#. Impact severity label in resume analysis suggestion card
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "High"
-msgstr "Korkea"
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
+msgid "High impact"
+msgstr "Suuri vaikutus"
 
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
@@ -2316,6 +2660,14 @@ msgstr "Ikoni"
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Identify gaps for an applicant tracking system and apply only high-confidence keyword improvements."
 msgstr "Tunnista hakijoiden seurantajärjestelmän puutteet ja käytä vain luotettavia avainsanaparannuksia."
+
+#: src/features/ats-checker/messages.ts
+msgid "If it came from a scan, that is expected. Otherwise remove it; recruiters read it as keyword stuffing."
+msgstr "Jos se tulee skannauksesta, se on odotettua. Muussa tapauksessa poista se; rekrytoijat tulkitsevat sen avainsanojen tungosteluksi."
+
+#: src/features/ats-checker/messages.ts
+msgid "Images cover most of the page."
+msgstr "Kuvat peittävät suurimman osan sivusta."
 
 #: src/dialogs/resume/import.tsx
 #: src/routes/dashboard/resumes/index.tsx
@@ -2363,6 +2715,11 @@ msgstr "Tuodaan ansioluetteloasi..."
 msgid "Importing…"
 msgstr "Tuodaan…"
 
+#. placeholder {0}: suggestion.section
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
+msgid "In {0}"
+msgstr "Kohdassa {0}"
+
 #: src/features/resume/export/download-dialog.tsx
 msgid "Include resume header"
 msgstr "Sisällytä CV:n ylätunniste"
@@ -2370,6 +2727,14 @@ msgstr "Sisällytä CV:n ylätunniste"
 #: src/components/input/rich-input.tsx
 msgid "Increase indent"
 msgstr "Suurenna sisennystä"
+
+#: src/features/ats-checker/messages.ts
+msgid "Increase line spacing so two lines are not merged into one."
+msgstr "Kasvata riviväliä, jotta kaksi riviä ei sulaudu yhdeksi."
+
+#: src/libs/resume/ats.ts
+msgid "Increase them so content stays inside the reliably read area."
+msgstr "Kasvata niitä, jotta sisältö pysyy luotettavan lukualueen sisällä."
 
 #: src/routes/agent/-components/resume-pane.tsx
 msgid "Increase zoom"
@@ -2390,6 +2755,12 @@ msgstr "Rivikoodaus"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Insights"
 msgstr "Näkymät"
+
+#. placeholder {0}: progress.page
+#. placeholder {1}: progress.pageCount
+#: src/features/ats-checker/tool.tsx
+msgid "Inspecting page {0} of {1}…"
+msgstr "Tarkastetaan sivua {0}/{1}…"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Instant Generation"
@@ -2443,9 +2814,18 @@ msgstr "Job"
 msgid "Job description"
 msgstr "Työnkuvaus"
 
+#: src/features/ats-checker/tool.tsx
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Job description (optional)"
+msgstr "Työnkuvaus (valinnainen)"
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Job posting"
 msgstr "Työpaikkailmoitus"
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Job posting link"
+msgstr "Työpaikkailmoituksen linkki"
 
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
@@ -2492,6 +2872,30 @@ msgstr "Tasaa molemmat reunat"
 #: src/libs/locale.ts
 msgid "Kannada"
 msgstr "kannada"
+
+#: src/features/ats-checker/messages.ts
+msgid "Keep a single address, so nothing has to guess which one to use."
+msgstr "Pidä vain yksi osoite, jotta mitään ei tarvitse arvata."
+
+#: src/features/ats-checker/messages.ts
+msgid "Keep it under 2.5 MB, usually by removing or shrinking images."
+msgstr "Pidä se alle 2,5 megatavun, yleensä poistamalla tai pienentämällä kuvia."
+
+#: src/features/ats-checker/messages.ts
+msgid "Keep resume content as real text rather than as pictures of text."
+msgstr "Pidä ansioluettelon sisältö todellisena tekstinä kuvien sijaan."
+
+#: src/features/ats-checker/messages.ts
+msgid "Keep running heads short, or drop them. They repeat in the extracted text too."
+msgstr "Pidä sivun ylätunnisteet lyhyinä tai poista ne. Ne toistuvat myös poimitussa tekstissä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Keep them to roughly two lines, so a skim-reader finishes them."
+msgstr "Pidä ne noin kahdessa rivissä, jotta silmäilevä lukija ehtii lukea ne loppuun."
+
+#: src/features/ats-checker/messages.ts
+msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
+msgstr "Käytä vain kahta tai kolmea fonttiperhettä. Jokainen ylimääräinen fontti on lisää mahdollisuuksia virheelliseen kartoitukseen."
 
 #. Layout editor toggle that prevents a section from splitting across pages
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -2542,10 +2946,6 @@ msgstr "Kieli"
 msgid "Languages"
 msgstr "Kielet"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Last analyzed on {updatedAtLabel}"
-msgstr "Viimeksi analysoitu {updatedAtLabel}"
-
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Last downloaded on {0}"
@@ -2573,6 +2973,11 @@ msgstr "Viimeksi katsottu {0}"
 msgid "Latvian"
 msgstr "latvia"
 
+#: src/features/ats-checker/messages.ts
+msgid "Lay the text out horizontally. Rotated runs are often dropped or misplaced."
+msgstr "Aseta teksti vaakasuoraan. Käännetyt tekstijaksot jäävät usein pois tai siirtyvät väärään paikkaan."
+
+#: src/features/ats-checker/messages.ts
 #: src/libs/resume/section.tsx
 msgid "Layout"
 msgstr "Asettelu"
@@ -2581,21 +2986,30 @@ msgstr "Asettelu"
 msgid "Learn More"
 msgstr "Lue lisää"
 
+#: src/dialogs/resume/import.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Leave"
 msgstr "Poistu"
+
+#: src/features/ats-checker/messages.ts
+msgid "Leave at least half an inch around the page."
+msgstr "Jätä vähintään puolen tuuman marginaali sivun ympärille."
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
 msgstr "Jätä tyhjäksi palauttaaksesi otsikon alkuperäiseksi."
 
+#: src/dialogs/resume/import.tsx
+msgid "Leave to set up an AI provider?"
+msgstr "Haluatko jättää AI-palveluntarjoajan perustamisen?"
+
 #: src/components/input/rich-input.tsx
 msgid "Left Align"
 msgstr "Tasaa vasemmalle"
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Let AI read the posting and fill the fields below."
-msgstr "Anna AI:n lukea ilmoitus ja täyttää alla olevat kentät."
+#: src/features/ats-checker/messages.ts
+msgid "Length is not a defect, and there is no universal one-page rule. Keep the pages that earn their place."
+msgstr "Pituus ei ole virhe, eikä yhden sivun sääntö ole yleispätevä. Pidä ne sivut, jotka ansaitsevat paikkansa."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Letter"
@@ -2615,6 +3029,10 @@ msgstr "Taso {level} / 5"
 #: src/components/ui/copyright.tsx
 msgid "Licensed under <0>MIT</0>."
 msgstr "Lisensoitu <0>MIT</0>-lisenssillä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Ligatures can drop letters out of words such as \"workflow\"."
+msgstr "Ligatuurit voivat pudottaa kirjaimia sanoista, kuten \"workflow\"."
 
 #. Appearance theme option for light mode
 #: src/features/user/dropdown-menu.tsx
@@ -2641,8 +3059,8 @@ msgid "Link a Reactive Resume (recommended)"
 msgstr "Linkitä Reactive Resume (suositus)"
 
 #: src/features/applications/components/application-ai-copilot.tsx
-msgid "Link a resume and add a job description (Edit) to score your fit and tailor a copy."
-msgstr "Linkitä ansioluettelo ja lisää työnkuvaus (Muokkaa), jotta sopivuutesi voidaan pisteyttää ja kopio mukauttaa."
+msgid "Link a resume and paste the job description (Edit) to score your fit and tailor a copy."
+msgstr "Yhdistä ansioluettelo ja liitä työnkuvaus (Muokkaa), niin voit pisteyttää osuvuutesi ja räätälöidä kopion."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Linked Reactive Resume"
@@ -2672,6 +3090,10 @@ msgstr "Yhdistetään tiliäsi palvelussa {providerName}..."
 msgid "List"
 msgstr "Lista"
 
+#: src/features/ats-checker/messages.ts
+msgid "List the tools and technologies you use. Recruiters search skills more than any other field."
+msgstr "Listaa käyttämäsi työkalut ja teknologiat. Rekrytoijat hakevat taitoja useammin kuin mitään muuta kenttää."
+
 #: src/libs/locale.ts
 msgid "Lithuanian"
 msgstr "liettua"
@@ -2684,8 +3106,8 @@ msgstr "Ladataan tekoälypalveluntarjoajia. Yritä uudelleen hetken kuluttua."
 msgid "Loading applications…"
 msgstr "Sovellusten lataaminen…"
 
+#: src/features/settings/integrations/components/ai-provider-picker.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
-#: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
 msgstr "Ladataan palveluntarjoajia…"
 
@@ -2708,6 +3130,7 @@ msgstr "Ladataan…"
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/table-view.tsx
+#: src/features/ats-checker/parse-preview.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 msgid "Location"
 msgstr "Sijainti"
@@ -2725,6 +3148,10 @@ msgstr "Lukitse"
 msgid "Logout"
 msgstr "Kirjaudu ulos"
 
+#: src/features/ats-checker/messages.ts
+msgid "Long stretches are set in capitals."
+msgstr "Pitkiä jaksoja on kirjoitettu suuraakkosin."
+
 #: src/routes/_home/-sections/donate.tsx
 msgid "Long-term Sustainability"
 msgstr "Pitkäaikainen kestävyys"
@@ -2734,10 +3161,9 @@ msgstr "Pitkäaikainen kestävyys"
 msgid "Lost access to your authenticator?"
 msgstr "Etkö pääse käsiksi todennussovellukseesi?"
 
-#. Impact severity label in resume analysis suggestion card
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Low"
-msgstr "Matala"
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
+msgid "Low impact"
+msgstr "Vähäinen vaikutus"
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -2752,6 +3178,14 @@ msgstr "Päävalikko"
 msgid "Make the experience section more results-oriented and remove vague responsibilities."
 msgstr "Tee kokemusosiosta tuloskeskeisempi ja poista epämääräiset vastuualueet."
 
+#: src/features/ats-checker/messages.ts
+msgid "Make the visible text and the destination match."
+msgstr "Varmista, että näkyvä teksti ja kohdeosoite vastaavat toisiaan."
+
+#: src/features/ats-checker/messages.ts
+msgid "Make them visibly larger, bolder or capitalised."
+msgstr "Tee niistä selvästi suurempia, lihavoituja tai suuraakkosin kirjoitettuja."
+
 #: src/libs/locale.ts
 msgid "Malay"
 msgstr "malaiji"
@@ -2759,6 +3193,10 @@ msgstr "malaiji"
 #: src/libs/locale.ts
 msgid "Malayalam"
 msgstr "malajalam"
+
+#: src/features/ats-checker/messages.ts
+msgid "Many bullets start with the same phrase."
+msgstr "Monet luettelokohdat alkavat samalla ilmauksella."
 
 #: src/libs/locale.ts
 msgid "Marathi"
@@ -2780,10 +3218,9 @@ msgstr "Merkitse hylätyksi"
 msgid "Match scoring failed."
 msgstr "Sopivuuden pisteytys epäonnistui."
 
-#. Impact severity label in resume analysis suggestion card
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Medium"
-msgstr "Medium"
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
+msgid "Medium impact"
+msgstr "Kohtalainen vaikutus"
 
 #. File format label in import source selector
 #. File format label in import source selector
@@ -2803,6 +3240,34 @@ msgstr "Mistral-tekoäly"
 msgid "Model"
 msgstr "Malli"
 
+#: src/features/ats-checker/messages.ts
+msgid "More than one email address appears."
+msgstr "Sähköpostiosoitteita esiintyy useampi kuin yksi."
+
+#: src/features/ats-checker/messages.ts
+msgid "Most bullets open with filler rather than something you did."
+msgstr "Useimmat luettelokohdat alkavat täytesanoilla sen sijaan, että kertoisivat, mitä teit."
+
+#: src/features/ats-checker/messages.ts
+msgid "Most entries have no dates."
+msgstr "Useimmilla merkinnöillä ei ole päivämääriä."
+
+#: src/libs/resume/ats.ts
+msgid "Most systems file candidates by email. Add one under Basics."
+msgstr "Useimmat järjestelmät tallentavat ehdokkaat sähköpostitse. Lisää yksi Perustiedot-kohtaan."
+
+#: src/features/ats-checker/messages.ts
+msgid "Move all content inside the page boundaries and re-export."
+msgstr "Siirrä kaikki sisältö sivun rajojen sisäpuolelle ja vie tiedosto uudelleen."
+
+#: src/libs/resume/ats.ts
+msgid "Move it into the main column and keep the sidebar for short lists."
+msgstr "Siirrä se pääsarakkeeseen ja säilytä sivupalkki lyhyitä luetteloita varten."
+
+#: src/features/ats-checker/messages.ts
+msgid "Move real content into the body of the page; some software discards the margins."
+msgstr "Siirrä todellinen sisältö sivun leipätekstialueelle; osa ohjelmistoista hylkää marginaalit."
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move section to another column or page"
 msgstr "Siirrä osio toiselle sarakkeelle tai sivulle"
@@ -2817,6 +3282,10 @@ msgstr "Siirrä vaihetta"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move to"
 msgstr "Siirrä"
+
+#: src/features/ats-checker/messages.ts
+msgid "Move your email and phone number to the top of page one."
+msgstr "Siirrä sähköpostiosoitteesi ja puhelinnumerosi ensimmäisen sivun alkuun."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Moved to"
@@ -2839,6 +3308,7 @@ msgstr "Aloitettava osoitteesta https://"
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/skill.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/ats-checker/parse-preview.tsx
 #: src/features/auth/pages/register.tsx
 #: src/features/settings/pages/profile.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
@@ -2853,6 +3323,14 @@ msgstr "nepali"
 #: src/dialogs/resume/sections/profile.tsx
 msgid "Network"
 msgstr "Verkosto"
+
+#: src/features/settings/pages/api-keys.tsx
+msgid "Never expires"
+msgstr "Ei koskaan vanhene"
+
+#: src/features/auth/pages/error.tsx
+msgid "New account sign-ups are currently disabled on this server."
+msgstr "Uusien tilien luonti on tällä palvelimella tällä hetkellä poistettu käytöstä."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
@@ -2900,6 +3378,10 @@ msgstr "Uusi ketju"
 msgid "No Advertising, No Tracking"
 msgstr "Ei mainoksia, ei seurantaa"
 
+#: src/routes/builder/$resumeId/-components/ai-assistant.tsx
+msgid "No AI provider connected"
+msgstr "Ei yhdistettyä tekoälypalveluntarjoajaa"
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "Mikään hakemus ei vastaa suodattimiasi."
@@ -2908,18 +3390,58 @@ msgstr "Mikään hakemus ei vastaa suodattimiasi."
 msgid "No applications yet — add a few to see your funnel and reply rates."
 msgstr "Ei vielä hakemuksia — lisää muutama nähdäksesi suppilon ja vastausprosentit."
 
+#: src/features/ats-checker/messages.ts
+msgid "No bullet lists were found."
+msgstr "Luettelomerkkilistoja ei löytynyt."
+
+#: src/features/ats-checker/messages.ts
+msgid "No conventional section headings were found."
+msgstr "Tavanomaisia osio-otsikoita ei löytynyt."
+
 #. Error shown when AI import endpoint returns no parsed resume data
 #: src/dialogs/resume/import.tsx
 msgid "No data was returned from the AI provider."
 msgstr "Tekoälypalvelun tarjoaja ei palauttanut tietoja."
 
+#: src/features/ats-checker/messages.ts
+msgid "No dates were found."
+msgstr "Päivämääriä ei löytynyt."
+
+#: src/features/ats-checker/messages.ts
+msgid "No education section was found."
+msgstr "Koulutusosiota ei löytynyt."
+
+#: src/features/ats-checker/messages.ts
+msgid "No email address was found."
+msgstr "Sähköpostiosoitetta ei löytynyt."
+
+#: src/features/ats-checker/messages.ts
+msgid "No lines look like a job title paired with an employer."
+msgstr "Yksikään rivi ei näytä tehtävänimikkeeltä yhdistettynä työnantajaan."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "No one-page rule, and no treating a font or a career gap as a fault."
+msgstr "Ei yhden sivun sääntöä eikä fontin tai urakatkoksen pitämistä virheenä."
+
 #: src/features/settings/authentication/components/passkeys.tsx
 msgid "No passkeys registered yet."
 msgstr "Ei vielä rekisteröityjä kulkulupia."
 
+#: src/features/ats-checker/messages.ts
+msgid "No phone number was found."
+msgstr "Puhelinnumeroa ei löytynyt."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "No prediction of whether you will be rejected — no tool can do that."
+msgstr "Ei ennustetta siitä, hylätäänkö sinut — mikään työkalu ei siihen pysty."
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "No prior data"
 msgstr "Ei aiempia tietoja"
+
+#: src/routes/_home/ats-checker.tsx
+msgid "No repeating the claim that most resumes are thrown out automatically."
+msgstr "Ei toistoa väitteelle, että useimmat ansioluettelot hylätään automaattisesti."
 
 #: src/components/ui/combobox.tsx
 msgid "No results found."
@@ -2942,21 +3464,33 @@ msgstr "Ei vielä ansioluetteloita."
 msgid "No saved versions yet."
 msgstr "Ei vielä tallennettuja versioita."
 
+#: src/features/ats-checker/messages.ts
+msgid "No skills section was found."
+msgstr "Taito-osiota ei löytynyt."
+
 #: src/features/applications/components/insights-view.tsx
 msgid "No source data yet."
 msgstr "Lähdetietoja ei vielä ole."
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
-msgid "No style rules yet."
-msgstr "Ei vielä tyylisääntöjä."
+#: src/features/ats-checker/report/jd-coverage.tsx
+msgid "No specific terms could be pulled out of that job description, so it may be mostly boilerplate. Paste the requirements section for a more useful comparison."
+msgstr "Tästä työnkuvauksesta ei voitu poimia erityisiä termejä, joten se voi olla enimmäkseen vakiotekstiä. Liitä vaatimukset-osio hyödyllisempää vertailua varten."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Ei testattua tarjoajaa"
 
+#: src/features/ats-checker/messages.ts
+msgid "No text could be read from this file."
+msgstr "Tästä tiedostosta ei voitu lukea tekstiä."
+
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "No threads yet."
 msgstr "Ei vielä ketjuja."
+
+#: src/features/ats-checker/messages.ts
+msgid "No work-experience section was found."
+msgstr "Työkokemusosiota ei löytynyt."
 
 #: src/libs/locale.ts
 msgid "Norwegian"
@@ -2966,14 +3500,46 @@ msgstr "norja"
 msgid "Not connected"
 msgstr "Ei yhdistetty"
 
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
+msgid "Not evidenced in your resume"
+msgstr "Ei todisteita ansioluettelossasi"
+
+#: src/features/ats-checker/report/jd-coverage.tsx
+msgid "Not in your resume"
+msgstr "Ei ansioluettelossasi"
+
+#: src/features/ats-checker/report/report-view.tsx
+msgid "Not scored"
+msgstr "Ei pisteytetty"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
 msgstr "Etkö ole varma, mitä kirjoittaa?"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Note"
+msgstr "Huom"
 
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/libs/resume/section.tsx
 msgid "Notes"
 msgstr "Muistiinpanot"
+
+#: src/features/ats-checker/messages.ts
+msgid "Nothing marks a role as ongoing."
+msgstr "Mikään ei merkitse roolia yhä käynnissä olevaksi."
+
+#: src/features/ats-checker/report/report-view.tsx
+msgid "Nothing to fix here."
+msgstr "Täällä ei ole mitään korjattavaa."
+
+#: src/features/ats-checker/messages.ts
+msgid "Nothing to fix. The remaining pages were simply not covered by this report."
+msgstr "Ei mitään korjattavaa. Loput sivut eivät yksinkertaisesti kuuluneet tämän raportin piiriin."
+
+#: src/features/ats-checker/report/report-view.tsx
+msgid "Nothing to suggest."
+msgstr "Ei ehdotuksia."
 
 #: src/libs/locale.ts
 msgid "Odia"
@@ -2996,9 +3562,22 @@ msgstr "Jatkuva ylläpito"
 msgid "Only applies when the section fits on a single page."
 msgstr "Koskee vain tilanteita, joissa osio mahtuu yhdelle sivulle."
 
+#: src/features/ats-checker/messages.ts
+msgid "Only one recognisable section heading was found."
+msgstr "Vain yksi tunnistettava osio-otsikko löytyi."
+
+#. placeholder {0}: report.document.pageCount
+#: src/features/ats-checker/report/report-view.tsx
+msgid "Only the first {0} pages were checked, so this report does not cover the whole file."
+msgstr "Vain ensimmäiset {0} sivua tarkistettiin, joten tämä raportti ei kata koko tiedostoa."
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Only the first {MAX_IMPORT} rows import at once — {overflow} left out. Split the file to import the rest."
 msgstr "Vain ensimmäiset {MAX_IMPORT} riviä tuodaan kerralla — {overflow} jätettiin pois. Jaa tiedosto tuodaksesi loput."
+
+#: src/features/ats-checker/messages.ts
+msgid "Only the first pages were checked."
+msgstr "Vain ensimmäiset sivut tarkistettiin."
 
 #. Resume card context menu action to open the resume editor
 #. Resume card dropdown action to open the resume editor
@@ -3028,13 +3607,17 @@ msgstr "Avoin tarkennustila"
 msgid "Open in builder"
 msgstr "Avaa rakentajassa"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
 msgid "Open Integrations Settings"
 msgstr "Avaa Integraatioiden asetukset"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Open Source"
 msgstr "Avoin lähdekoodi"
+
+#: src/features/ats-checker/messages.ts
+msgid "Open the exported file and confirm you can select and copy every part of it."
+msgstr "Avaa viety tiedosto ja varmista, että voit valita ja kopioida jokaisen sen osan."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "OpenAI"
@@ -3043,6 +3626,10 @@ msgstr "OpenAI"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "OpenAI-compatible"
 msgstr "OpenAI-yhteensopiva"
+
+#: src/features/ats-checker/tool.tsx
+msgid "Opening the file…"
+msgstr "Avataan tiedostoa…"
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "OpenRouter"
@@ -3054,9 +3641,21 @@ msgstr "OpenRouter"
 msgid "opens in new tab"
 msgstr "avautuu uuteen välilehteen"
 
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent"
+msgstr "Valinnainen huomautus agentille"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Optional note for the agent…"
+msgstr "Valinnainen huomautus agentille…"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
 msgstr "Halutessasi voit asettaa salasanan, jotta vain salasanan tietävät voivat nähdä ansioluettelosi linkin kautta."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "Optionally, which terms from a job posting already appear."
+msgstr "Valinnaisesti myös, mitkä työpaikkailmoituksen termit jo esiintyvät."
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Options for {title}"
@@ -3079,9 +3678,9 @@ msgstr "Numeroitu lista"
 msgid "Organization"
 msgstr "Organisaatio"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Overall Score"
-msgstr "Kokonaispisteet"
+#: src/features/ats-checker/report/score-header.tsx
+msgid "out of 100"
+msgstr "sadasta"
 
 #: src/libs/resume/section.tsx
 msgid "Page"
@@ -3156,17 +3755,25 @@ msgstr "Salasanasuojaus on poistettu käytöstä."
 msgid "Password protection has been enabled."
 msgstr "Salasanasuojaus on otettu käyttöön."
 
-#: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste a job posting URL"
-msgstr "Liitä työpaikkailmoituksen URL"
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Paste a posting to see which of its terms already appear in your resume."
+msgstr "Liitä ilmoitus nähdäksesi, mitkä sen termeistä jo esiintyvät ansioluettelossasi."
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Paste rows or upload a .csv. We map columns like Company, Role, Stage, Stage Date, Salary, Source and Tags."
 msgstr "Liitä rivejä tai lataa .csv. Yhdistämme sarakkeet kuten Yritys, Rooli, Vaihe, Vaiheen päivämäärä, Palkka, Lähde ja Tunnisteet."
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Paste the posting — powers AI match scoring and tailoring."
-msgstr "Liitä ilmoitus — se mahdollistaa AI-sopivuuspisteytyksen ja mukauttamisen."
+msgid "Paste the full job description here…"
+msgstr "Liitä koko työnkuvaus tähän…"
+
+#: src/features/ats-checker/tool.tsx
+msgid "Paste the posting to see which of its terms already appear in your resume."
+msgstr "Liitä ilmoitus nähdäksesi, mitkä sen termeistä jo esiintyvät ansioluettelossasi."
+
+#: src/features/applications/components/application-form-sheet.tsx
+msgid "Pasting fills the fields automatically."
+msgstr "Liittäminen täyttää kentät automaattisesti."
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Patch applied"
@@ -3218,6 +3825,7 @@ msgid "Personalize your resume with any colors, fonts or designs, and make it yo
 msgstr "Personoi ansioluettelosi millä tahansa väreillä, fonteilla tai ulkoasuilla ja tee siitä omannäköisesi."
 
 #: src/dialogs/resume/sections/reference.tsx
+#: src/features/ats-checker/parse-preview.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 msgid "Phone"
 msgstr "Puhelin"
@@ -3225,6 +3833,10 @@ msgstr "Puhelin"
 #: src/components/input/icon-picker.tsx
 msgid "Pick an icon"
 msgstr "Valitse kuvake"
+
+#: src/features/ats-checker/messages.ts
+msgid "Pick one format and use it everywhere."
+msgstr "Valitse yksi muoto ja käytä sitä kaikkialla."
 
 #: src/libs/resume/section.tsx
 msgid "Picture"
@@ -3237,6 +3849,10 @@ msgstr "Putken kulku"
 #: src/features/applications/components/insights-view.tsx
 msgid "Pipeline health across all applications"
 msgstr "Putken tila kaikissa hakemuksissa"
+
+#: src/libs/resume/ats.ts
+msgid "Place it on a page from the Layout panel, or hide it if you meant to park it."
+msgstr "Aseta se sivulle Asettelu-paneelista tai piilota se, jos aiot pysäköidä sen."
 
 #: src/features/resume/export/download-dialog.tsx
 msgid "Plain text, ideal for AI tools and quick edits."
@@ -3292,6 +3908,14 @@ msgstr "portugali (Portugali)"
 msgid "Position"
 msgstr "Tehtävänimike"
 
+#: src/libs/resume/ats.ts
+msgid "Prefer a conventional heading such as \"Work Experience\" or \"Education\"."
+msgstr "Prefer a conventional heading such as \\\"Work Experience\\\" or \\\"Education\\\"."
+
+#: src/features/ats-checker/messages.ts
+msgid "Prefer a single column, or keep the side column to short, self-contained lists."
+msgstr "Suosi yhtä saraketta, tai pidä sivusarake lyhyissä, itsenäisissä listoissa."
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/index.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
@@ -3325,12 +3949,20 @@ msgid "Preview"
 msgstr "Esikatselu"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Preview and export use the last valid version."
-msgstr "Esikatsele ja vie käyttämällä viimeisintä kelvollista versiota."
+msgid "Preview and export fall back to base styles."
+msgstr "Esikatselu ja vienti palaavat perustyyleihin."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Preview and export keep valid styles and ignore invalid styles."
+msgstr "Esikatselu ja vienti säilyttävät kelvolliset tyylit ja ohittavat virheelliset tyylit."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
 msgstr "Pääväri"
+
+#: src/features/ats-checker/messages.ts
+msgid "Print or export the form to a flat PDF before sending it."
+msgstr "Tulosta tai vie lomake tasoitettuna PDF:nä ennen sen lähettämistä."
 
 #: src/dialogs/resume/sections/skill.tsx
 msgid "Proficiency"
@@ -3388,6 +4020,38 @@ msgstr "Julkaisut"
 msgid "Publisher"
 msgstr "Julkaisija"
 
+#: src/features/ats-checker/messages.ts
+msgid "Put a plain email address near the top of the first page. It is what most systems file you under."
+msgstr "Sijoita tavallinen sähköpostiosoite lähelle ensimmäisen sivun alkua. Sen mukaan useimmat järjestelmät luokittelevat sinut."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Raw JSON"
+msgstr "Raaka JSON"
+
+#: src/features/ats-checker/messages.ts
+msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
+msgstr "Vie tiedosto uudelleen yksisarakkeisesta asettelusta, kopioi sitten teksti ulos ja tarkista, että se luetaan ylhäältä alas."
+
+#: src/features/ats-checker/messages.ts
+msgid "Re-export from the original document rather than converting from another format."
+msgstr "Vie tiedosto uudelleen alkuperäisestä asiakirjasta sen sijaan, että muuntaisit sen toisesta muodosta."
+
+#: src/features/ats-checker/messages.ts
+msgid "Re-export from the original document with fonts embedded properly."
+msgstr "Vie tiedosto uudelleen alkuperäisestä asiakirjasta fontit oikein upotettuina."
+
+#: src/features/ats-checker/messages.ts
+msgid "Re-export using an ordinary TrueType or OpenType font."
+msgstr "Vie tiedosto uudelleen käyttäen tavallista TrueType- tai OpenType-fonttia."
+
+#: src/features/ats-checker/messages.ts
+msgid "Re-export with fonts embedded, and check the text copies out cleanly."
+msgstr "Vie tiedosto uudelleen fontit upotettuina ja tarkista, että teksti kopioituu siististi."
+
+#: src/features/ats-checker/messages.ts
+msgid "Re-export with fonts embedded, then open the file and check that the text copies out cleanly."
+msgstr "Vie tiedosto uudelleen fontit upotettuina, avaa se sitten ja tarkista, että teksti kopioituu siististi."
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Re-score"
 msgstr "Pisteytä uudelleen"
@@ -3435,17 +4099,39 @@ msgstr "Reaktiivinen ansioluettelo v<0>{__APP_VERSION__}</0>"
 msgid "Reactive Resume v4 (JSON)"
 msgstr "Reaktiivinen ansioluettelo v4 (JSON)"
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read an attachment"
+msgstr "Luki liitteen"
+
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Read the Applying Custom Styles guide."
 msgstr "Lue opas Mukautettujen tyylien käyttäminen."
 
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Read the resume"
+msgstr "Luki ansioluettelon"
+
+#: src/features/ats-checker/messages.ts
+msgid "Readability"
+msgstr "Luettavuus"
+
+#. placeholder {0}: progress.page
+#. placeholder {1}: progress.pageCount
+#: src/features/ats-checker/tool.tsx
+msgid "Reading page {0} of {1}…"
+msgstr "Luetaan sivua {0}/{1}…"
+
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Reading…"
-msgstr "Luetaan…"
+msgid "Reading the posting…"
+msgstr "Luetaan ilmoitusta…"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate"
 msgstr "Valmis aktivoitavaksi"
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Ready to activate with errors"
+msgstr "Valmis aktivoitavaksi virheillä"
 
 #: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
@@ -3534,6 +4220,10 @@ msgstr "Poistetaan salasanasuojausta..."
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Renders your current resume to PDF and runs the full file check, in your browser. Nothing is uploaded."
+msgstr "Renderöi nykyisen ansioluettelosi PDF:ksi ja suorittaa täyden tiedostotarkistuksen selaimessasi. Mitään ei ladata palvelimelle."
+
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
 msgstr "Järjestä uudelleen"
@@ -3541,6 +4231,19 @@ msgstr "Järjestä uudelleen"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom-fields.tsx
 msgid "Reorder custom field"
 msgstr "Järjestä mukautettu kenttä uudelleen"
+
+#. placeholder {0}: jd.stuffedTerms.join(", ")
+#: src/features/ats-checker/report/jd-coverage.tsx
+msgid "Repeated far more often than the posting itself uses them: {0}. Recruiters notice."
+msgstr "Toistuu paljon useammin kuin ilmoitus itse käyttää niitä: {0}. Rekrytoijat huomaavat sen."
+
+#: src/features/ats-checker/messages.ts
+msgid "Replace icon fonts with plain text, then re-export."
+msgstr "Korvaa kuvakefontit tavallisella tekstillä ja vie tiedosto uudelleen."
+
+#: src/features/ats-checker/messages.ts
+msgid "Replace tables with plain paragraphs and lists. Cells extract in storage order, not reading order."
+msgstr "Korvaa taulukot tavallisilla kappaleilla ja listoilla. Solut poimitaan tallennusjärjestyksessä, ei lukujärjestyksessä."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -3558,6 +4261,10 @@ msgstr "Lähetä vahvistussähköposti uudelleen"
 msgid "Resending verification email..."
 msgstr "Lähetetään vahvistussähköpostia uudelleen..."
 
+#: src/features/ats-checker/messages.ts
+msgid "Reserve capitals for short headings. They slow reading and can defeat case-sensitive search."
+msgstr "Käytä suuraakkosia vain lyhyissä otsikoissa. Ne hidastavat lukemista ja voivat haitata kirjainkoon huomioivaa hakua."
+
 #. Destructive confirmation button label when resetting a resume section
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Reset"
@@ -3567,14 +4274,6 @@ msgstr "Palauta"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset Password"
 msgstr "Palauta salasana"
-
-#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
-msgid "Reset Style"
-msgstr "Palauta tyyli"
-
-#: src/features/resume/stylesheet/toolbar.tsx
-msgid "Reset to applied stylesheet"
-msgstr "Palauta käytettyyn tyylitiedostoon"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
@@ -3593,8 +4292,8 @@ msgid "Restore"
 msgstr "Palauttaa"
 
 #: src/routes/agent/-components/agent-chat.tsx
-msgid "Restore the resume to before this patch? This will roll back this patch and any patches applied after it."
-msgstr "Palautetaanko ansioluettelo tätä korjausta edeltävään tilaan? Tämä palauttaa tämän korjauksen ja kaikki sen jälkeen asennetut korjaukset vanhaan tilaan."
+msgid "Restore the resume to before this patch?"
+msgstr "Palautetaanko ansioluettelo tilaan ennen tätä korjausta?"
 
 #: src/routes/builder/$resumeId/-components/version-history.tsx
 msgid "Restore this version?"
@@ -3607,17 +4306,13 @@ msgstr "Palautetaanko tämä versio?"
 msgid "Resume"
 msgstr "Jatkaa"
 
-#: src/libs/resume/section.tsx
-msgid "Resume Analysis"
-msgstr "Yhteenveto Analyysi"
-
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Resume analysis complete."
-msgstr "Ansioluettelon analyysi valmis."
-
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
 msgstr "Ansioluettelon sisältö"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Resume edit"
+msgstr "Ansioluettelon muokkaus"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Resume file"
@@ -3648,8 +4343,24 @@ msgid "Retry"
 msgstr "Yritä uudelleen"
 
 #: src/routes/agent/-components/agent-chat.tsx
+msgid "Review edits"
+msgstr "Tarkista muokkaukset"
+
+#: src/routes/agent/-components/agent-chat.tsx
 msgid "Review the resume against a job description and ask me questions before changing uncertain sections."
 msgstr "Tarkista ansioluettelo työpaikkailmoitusta vasten ja kysy minulta kysymyksiä ennen kuin muutat epävarmoja kohtia."
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Review the writing with AI"
+msgstr "Arvioi kirjoitus tekoälyllä"
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Review this edit"
+msgstr "Tarkista tämä muokkaus"
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Reviewing…"
+msgstr "Arvioidaan…"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Rework the summary so it targets a senior engineering manager role without sounding generic."
@@ -3687,17 +4398,21 @@ msgstr "romania"
 msgid "Rotation"
 msgstr "Kierrätys"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
-msgid "rule"
-msgstr "sääntö"
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Run again"
+msgstr "Suorita uudelleen"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
-msgid "rules"
-msgstr "säännöt"
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Run AI review"
+msgstr "Suorita tekoälyarvio"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
-msgstr "Suorita ensimmäinen analyysi, jotta saat tuloskortin, vahvuudet ja priorisoidut ehdotukset."
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Run deep check"
+msgstr "Suorita syvätarkistus"
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Running…"
+msgstr "Suoritetaan…"
 
 #: src/libs/locale.ts
 msgid "Russian"
@@ -3725,6 +4440,10 @@ msgstr "Tallenna ja testaa -palveluntarjoaja"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Save & Upload"
 msgstr "Tallenna ja lataa"
+
+#: src/features/ats-checker/messages.ts
+msgid "Save an unprotected copy, with no password and no permissions restrictions."
+msgstr "Tallenna suojaamaton kopio ilman salasanaa ja käyttöoikeusrajoituksia."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Save changes"
@@ -3754,6 +4473,10 @@ msgstr "Tallenna muutokset"
 msgid "Save model"
 msgstr "Tallenna malli"
 
+#: src/features/ats-checker/messages.ts
+msgid "Save the file with every page upright."
+msgstr "Tallenna tiedosto siten, että jokainen sivu on pystysuorassa."
+
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
 msgstr "Tallennettu"
@@ -3773,10 +4496,6 @@ msgstr "Oppilaitos"
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Score my fit"
 msgstr "Pisteytä sopivuuteni"
-
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Scorecard"
-msgstr "Tuloskortti"
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Scoring your fit…"
@@ -3831,9 +4550,18 @@ msgstr "Osion asetukset"
 msgid "Section Type"
 msgstr "Osion tyyppi"
 
+#: src/features/ats-checker/messages.ts
+#: src/features/ats-checker/parse-preview.tsx
+msgid "Sections"
+msgstr "Osiot"
+
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "See how this resume matches the posting"
 msgstr "Katso, miten tämä ansioluettelo vastaa ilmoitusta"
+
+#: src/routes/_home/-sections/features.tsx
+msgid "See what an applicant tracking system can read from your resume. Runs in your browser."
+msgstr "Katso, mitä hakijaseurantajärjestelmä pystyy lukemaan ansioluettelostasi. Toimii selaimessasi."
 
 #. placeholder {0}: app.company
 #: src/features/applications/components/table-view.tsx
@@ -3856,7 +4584,7 @@ msgstr "Valitse kaikki"
 msgid "Select an agent model"
 msgstr "Valitse agenttimalli"
 
-#: src/routes/agent/-components/new-thread-setup.tsx
+#: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Valitse tekoälypalveluntarjoaja"
 
@@ -3876,9 +4604,9 @@ msgstr "Itse-isännöinti Dockerilla"
 msgid "Semantic CSS stylesheet"
 msgstr "Semanttinen CSS-tyylitiedosto"
 
-#: src/features/resume/stylesheet/legacy-banner.tsx
-msgid "Semantic styles remain active"
-msgstr "Semanttiset tyylit pysyvät aktiivisina"
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Send answer"
+msgstr "Lähetä vastaus"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Send message"
@@ -3889,9 +4617,21 @@ msgstr "Lähetä viesti"
 msgid "Send Password Reset Email"
 msgstr "Lähetä salasanan palautussähköposti"
 
+#: src/features/ats-checker/messages.ts
+msgid "Send the resume itself rather than a portfolio wrapper."
+msgstr "Lähetä itse ansioluettelo portfoliokääreen sijaan."
+
 #: src/features/auth/pages/forgot-password.tsx
 msgid "Sending password reset email..."
 msgstr "Lähetetään salasanan palautussähköpostia..."
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Sends the text already extracted from your PDF to the AI provider you choose below. The PDF file itself is never uploaded."
+msgstr "Lähettää PDF:stäsi jo poimitun tekstin alla valitsemallesi tekoälypalveluntarjoajalle. Itse PDF-tiedostoa ei koskaan ladata palvelimelle."
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Sends the text already extracted from your PDF, plus the job description you pasted, to the AI provider you choose below. The PDF file itself is never uploaded."
+msgstr "Lähettää PDF:stäsi jo poimitun tekstin sekä liittämäsi työnkuvauksen alla valitsemallesi tekoälypalveluntarjoajalle. Itse PDF-tiedostoa ei koskaan ladata palvelimelle."
 
 #: src/components/input/rich-input.tsx
 msgid "Separator"
@@ -3905,6 +4645,10 @@ msgstr "serbia"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Set Password"
 msgstr "Aseta salasana"
+
+#: src/features/ats-checker/messages.ts
+msgid "Set the document language when exporting."
+msgstr "Aseta asiakirjan kieli vientihetkellä."
 
 #: src/dialogs/resume/import.tsx
 msgid "Set up a provider"
@@ -4017,9 +4761,14 @@ msgid "Sidebar Width"
 msgstr "Sivupalkin leveys"
 
 #. Primary action button label on login form
+#: src/features/ats-checker/ai-review/locked-card.tsx
 #: src/features/auth/pages/login.tsx
 msgid "Sign in"
 msgstr "Kirjaudu sisään"
+
+#: src/features/ats-checker/ai-review/locked-card.tsx
+msgid "Sign in and connect your own AI provider to get rewrite suggestions for weak bullets. The checks above are free and need no account."
+msgstr "Kirjaudu sisään ja yhdistä oma tekoälypalveluntarjoajasi saadaksesi uudelleenkirjoitusehdotuksia heikoille luettelokohdille. Yllä olevat tarkistukset ovat ilmaisia eivätkä vaadi tiliä."
 
 #. Call-to-action link from forgot-password page to login page
 #. Call-to-action link from registration page to login page
@@ -4041,6 +4790,11 @@ msgstr "Kirjaudu sisään GitHubilla, Googlella tai mukautetulla OAuth-palvelunt
 #: src/features/auth/pages/register.tsx
 msgid "Sign up"
 msgstr "Rekisteröidy"
+
+#. Title on the page shown after a failed or cancelled OAuth sign-in
+#: src/features/auth/pages/error.tsx
+msgid "Sign-in didn't complete"
+msgstr "Kirjautuminen ei valmistunut"
 
 #: src/features/auth/components/social-auth.tsx
 #: src/features/auth/pages/login.tsx
@@ -4108,14 +4862,61 @@ msgstr "Sloveeni"
 msgid "Slug"
 msgstr "Polkutunnus"
 
+#: src/libs/resume/ats.ts
+msgid "Some application systems require one before you can submit."
+msgstr "Jotkin hakujärjestelmät vaativat sellaisen, ennen kuin voit lähettää."
+
+#: src/features/ats-checker/messages.ts
+msgid "Some bullets run long."
+msgstr "Osa luettelokohdista on pitkiä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Some characters come out as question marks."
+msgstr "Osa merkeistä muuttuu kysymysmerkeiksi."
+
+#: src/features/ats-checker/report/score-header.tsx
+msgid "Some checks need information this file does not carry: page contents that could not be inspected, or text in a language these checks do not cover. They are counted as neither passed nor failed."
+msgstr "Osa tarkistuksista tarvitsee tietoa, jota tässä tiedostossa ei ole: sivuja, joita ei voitu tarkastaa, tai tekstiä kielellä, jota nämä tarkistukset eivät kata. Niitä ei lasketa läpäistyiksi eikä hylätyiksi."
+
+#: src/features/ats-checker/messages.ts
+msgid "Some glyphs have no meaning outside this file."
+msgstr "Osalla glyfeistä ei ole merkitystä tämän tiedoston ulkopuolella."
+
+#: src/features/ats-checker/messages.ts
+msgid "Some lines are stored out of reading order."
+msgstr "Osa riveistä on tallennettu väärässä lukujärjestyksessä."
+
+#: src/libs/resume/ats.ts
+msgid "Some parsers mishandle images, and photos are discouraged in some regions."
+msgstr "Jotkut jäsentimet käsittelevät kuvia väärin, eikä valokuvia suositella joillain alueilla."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Some styles were ignored"
+msgstr "Joitakin tyylejä ohitettiin"
+
+#: src/features/ats-checker/messages.ts
+msgid "Some text falls outside the page."
+msgstr "Osa tekstistä jää sivun ulkopuolelle."
+
+#: src/features/ats-checker/messages.ts
+msgid "Some text is rotated."
+msgstr "Osa tekstistä on käännetty."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Something else…"
+msgstr "Jotain muuta…"
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Jokin meni pieleen"
 
-#. Fallback error description when resume analysis request fails
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Something went wrong while analyzing your resume."
-msgstr "Jokin meni pieleen ansioluetteloasi analysoitaessa."
+#: src/features/ats-checker/tool.tsx
+msgid "Something went wrong while reading that file. Please try again."
+msgstr "Jotain meni pieleen tiedostoa luettaessa. Yritä uudelleen."
+
+#: src/features/auth/pages/error.tsx
+msgid "Something went wrong while signing you in. Please try again."
+msgstr "Kirjautumisessa tapahtui virhe. Yritä uudelleen."
 
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -4143,6 +4944,15 @@ msgstr "Lähde"
 msgid "Source Code"
 msgstr "Lähdekoodi"
 
+#. placeholder {0}: operation.from
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "Source: {0}"
+msgstr "Lähde: {0}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Sources"
+msgstr "Lähteet"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Spacing (Horizontal)"
 msgstr "Väli (vaaka)"
@@ -4154,6 +4964,10 @@ msgstr "Väli (pysty)"
 #: src/libs/locale.ts
 msgid "Spanish"
 msgstr "espanja"
+
+#: src/features/ats-checker/messages.ts
+msgid "Spell the month, as in \"Mar 2022\"."
+msgstr "Kirjoita kuukausi sanoin, kuten \"Mar 2022\"."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Sponsors"
@@ -4204,6 +5018,10 @@ msgstr "Aloita ansioluettelon laatiminen antamalla sille nimi."
 msgid "Start building your resume from scratch"
 msgstr "Aloita ansioluettelon laatiminen alusta"
 
+#: src/features/ats-checker/messages.ts
+msgid "Start each one with a concrete verb: built, led, reduced, migrated."
+msgstr "Aloita jokainen konkreettisella verbillä: rakensi, johti, vähensi, siirsi."
+
 #: src/routes/agent/index.tsx
 msgid "Start new thread"
 msgstr "Aloita uusi ketju"
@@ -4213,6 +5031,10 @@ msgstr "Aloita uusi ketju"
 msgid "Start on new page"
 msgstr "Aloita uudelta sivulta"
 
+#: src/features/ats-checker/messages.ts
+msgid "Start the resume with your name on its own line."
+msgstr "Aloita ansioluettelo nimelläsi omalla rivillään."
+
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Start Thread"
 msgstr "Aloita ketju"
@@ -4221,15 +5043,20 @@ msgstr "Aloita ketju"
 msgid "Statistics"
 msgstr "Tilastot"
 
+#: src/dialogs/resume/import.tsx
 #: src/hooks/use-form-blocker.tsx
 msgid "Stay"
 msgstr "Pysy"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Still waiting for {provider}… {elapsedSeconds}s"
+msgstr "Odotan edelleen {provider}… {elapsedSeconds}s"
 
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Stop generation"
 msgstr "Lopeta sukupolvi"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
 msgid "Strengths"
 msgstr "Vahvuudet"
 
@@ -4246,14 +5073,14 @@ msgid "Stylesheet editor"
 msgstr "Tyylitiedostoeditori"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Stylesheet has errors"
-msgstr "Tyylitiedostossa on virheitä"
+msgid "Stylesheet has fatal errors"
+msgstr "Tyylitiedostossa on vakavia virheitä"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
 msgstr "Subreddit"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
 msgid "Suggestions"
 msgstr "Ehdotukset"
 
@@ -4273,6 +5100,11 @@ msgstr "Tue Reactive Resumea"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Support the app by doing what you can!"
 msgstr "Tue sovellusta parhaasi mukaan!"
+
+#: src/features/ats-checker/messages.ts
+#: src/libs/resume/ats.ts
+msgid "Swap the start and end dates."
+msgstr "Vaihda aloitus- ja lopetuspäivät."
 
 #: src/libs/locale.ts
 msgid "Swedish"
@@ -4308,6 +5140,10 @@ msgstr "Tunnisteet"
 #: src/dialogs/resume/index.tsx
 msgid "Tags can be used to categorize your resume by keywords."
 msgstr "Tunnisteilla voit luokitella ansioluettelosi avainsanojen mukaan."
+
+#: src/features/ats-checker/messages.ts
+msgid "Tags give software an explicit reading order. Enable them when exporting, if your tool offers it."
+msgstr "Tagit antavat ohjelmistolle selkeän lukujärjestyksen. Ota ne käyttöön viedessäsi, jos työkalusi tarjoaa sen."
 
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Tailor my resume"
@@ -4353,6 +5189,10 @@ msgstr "Suosittelut"
 msgid "Testing…"
 msgstr "Testaus…"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Testing… {elapsedSeconds}s"
+msgstr "Testataan… {elapsedSeconds}s"
+
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
 msgstr "Tekstin tasaus"
@@ -4362,6 +5202,14 @@ msgstr "Tekstin tasaus"
 msgid "Text Color"
 msgstr "Tekstiväri"
 
+#: src/features/ats-checker/messages.ts
+msgid "Text is written one character at a time."
+msgstr "Teksti on kirjoitettu yksi merkki kerrallaan."
+
+#: src/features/ats-checker/messages.ts
+msgid "Text sits in the header or footer area."
+msgstr "Teksti sijaitsee ylä- tai alatunnistealueella."
+
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "thai"
@@ -4370,14 +5218,34 @@ msgstr "thai"
 msgid "Thank you to our sponsors"
 msgstr "Kiitos sponsoreillemme"
 
+#: src/features/ats-checker/tool.tsx
+msgid "That file could not be read as a PDF."
+msgstr "Tätä tiedostoa ei voitu lukea PDF-tiedostona."
+
+#: src/features/ats-checker/uploader.tsx
+msgid "That file is not a PDF. Export your resume as a PDF and try again."
+msgstr "Tämä tiedosto ei ole PDF. Vie ansioluettelosi PDF-muodossa ja yritä uudelleen."
+
+#: src/features/ats-checker/tool.tsx
+#: src/features/ats-checker/uploader.tsx
+msgid "That file is too large to check in the browser."
+msgstr "Tämä tiedosto on liian suuri tarkistettavaksi selaimessa."
+
+#: src/features/auth/pages/error.tsx
+msgid "That provider account is already linked to a different user."
+msgstr "Kyseinen palveluntarjoajan tili on jo liitetty toiseen käyttäjään."
+
+#: src/features/auth/pages/error.tsx
+msgid "That provider account uses a different email address than your account."
+msgstr "Kyseinen palveluntarjoajan tili käyttää eri sähköpostiosoitetta kuin tilisi."
+
+#: src/features/auth/pages/error.tsx
+msgid "That sign-in provider is no longer available on this server."
+msgstr "Kyseinen kirjautumispalvelu ei ole enää käytettävissä tällä palvelimella."
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "The agent needs your input."
 msgstr "Välittäjä tarvitsee panostasi."
-
-#. Error description when AI returns invalid resume analysis format
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "The AI returned an invalid analysis format. Please try again."
-msgstr "Tekoäly palautti virheellisen analyysiformaatin. Yritä uudelleen."
 
 #: src/features/settings/pages/api-keys.tsx
 msgid "The API key has been deleted successfully."
@@ -4387,23 +5255,63 @@ msgstr "API-avain on poistettu onnistuneesti."
 msgid "The API key will no longer be able to access your data after deletion. This action cannot be undone."
 msgstr "API-avain ei voi enää käyttää tietojasi poistamisen jälkeen. Tätä toimintoa ei voi perua."
 
+#: src/features/auth/pages/error.tsx
+msgid "The application that sent you here made an invalid authorization request."
+msgstr "Sovellus, joka lähetti sinut tänne, teki virheellisen valtuutuspyynnön."
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "The checks above are mechanical. This asks a language model what a reader would think of your bullets, and suggests rewrites. It produces no score."
+msgstr "Yllä olevat tarkistukset ovat mekaanisia. Tämä kysyy kielimallilta, mitä lukija ajattelisi luettelokohdistasi, ja ehdottaa uudelleenkirjoituksia. Se ei tuota pisteitä."
+
 #. Empty-state message when no command palette results match the search query
 #: src/features/command-palette/index.tsx
 msgid "The command you're looking for doesn't exist."
 msgstr "Etsimääsi komentoa ei ole olemassa."
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "The deep check could not finish. Please try again."
+msgstr "Syvätarkistusta ei saatu valmiiksi. Yritä uudelleen."
 
 #. Error shown when AI parsing returns invalid resume structure during import
 #: src/dialogs/resume/import.tsx
 msgid "The imported file could not be parsed into a valid resume."
 msgstr "Tuotua tiedostoa ei voitu jäsentää kelvolliseksi jatkumoksi."
 
+#: src/features/ats-checker/messages.ts
+msgid "The order the text is stored in disagrees badly with the order it reads in."
+msgstr "Tekstin tallennusjärjestys eroaa selvästi sen lukujärjestyksestä."
+
 #: src/components/layout/not-found-screen.tsx
 msgid "The page you're looking for may have been moved or no longer exists."
 msgstr "Etsimäsi sivu on ehkä siirretty tai sitä ei enää ole."
 
+#: src/features/ats-checker/messages.ts
+msgid "The pages are pictures, with no text behind them."
+msgstr "Sivut ovat kuvia, joiden takana ei ole tekstiä."
+
 #: src/features/auth/pages/resume-password.tsx
 msgid "The password you entered is incorrect"
 msgstr "Syöttämäsi salasana on virheellinen"
+
+#: src/routes/_home/ats-checker.tsx
+msgid "The PDF is read by code running in this tab. Nothing is uploaded, nothing is stored, and no account is needed. Open your browser's network tab and watch, if you like."
+msgstr "PDF luetaan tässä välilehdessä suoritettavalla koodilla. Mitään ei ladata palvelimelle, mitään ei tallenneta, eikä tiliä tarvita. Avaa halutessasi selaimesi verkkovälilehti ja seuraa itse."
+
+#: src/features/auth/pages/error.tsx
+msgid "The provider didn't share an email address, which is required to sign in."
+msgstr "Palveluntarjoaja ei jakanut sähköpostiosoitetta, joka vaaditaan kirjautumiseen."
+
+#: src/features/auth/pages/error.tsx
+msgid "The provider rejected this sign-in attempt. Please start again."
+msgstr "Palveluntarjoaja hylkäsi tämän kirjautumisyrityksen. Aloita alusta."
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "The provider returned a review that could not be read. Try again."
+msgstr "Palveluntarjoaja palautti arvion, jota ei voitu lukea. Yritä uudelleen."
+
+#: src/features/auth/pages/error.tsx
+msgid "The provider's response could not be verified. Please start again."
+msgstr "Palveluntarjoajan vastausta ei voitu vahvistaa. Aloita alusta."
 
 #: src/features/resume/preview/preview.browser.tsx
 msgid "The resume preview could not be updated. The last valid preview is still shown."
@@ -4412,6 +5320,23 @@ msgstr "Ansioluettelon esikatselua ei voitu päivittää. Viimeisin kelvollinen 
 #: src/features/auth/pages/resume-password.tsx
 msgid "The resume you are trying to access is password protected"
 msgstr "Ansioluettelo, johon yrität päästä, on salasanalla suojattu"
+
+#: src/features/ats-checker/messages.ts
+msgid "The same line repeats on every page."
+msgstr "Sama rivi toistuu jokaisella sivulla."
+
+#. placeholder {0}: getPdfFindingMessage(cap).title
+#: src/features/ats-checker/report/score-header.tsx
+msgid "The score is capped because of a blocking problem: {0}"
+msgstr "Pisteet on rajoitettu estävän ongelman vuoksi: {0}"
+
+#: src/features/ats-checker/messages.ts
+msgid "The text comes out unreadable."
+msgstr "Teksti tulee ulos lukukelvottomana."
+
+#: src/features/ats-checker/messages.ts
+msgid "The top of the first page does not look like a name."
+msgstr "Ensimmäisen sivun yläosa ei näytä nimeltä."
 
 #: src/components/input/rich-input.tsx
 msgid "The URL you entered is not valid."
@@ -4432,6 +5357,18 @@ msgstr "Teema"
 msgid "Then, enter the 6 digit code that the app provides to continue."
 msgstr "Syötä sitten sovelluksen antama kuusinumeroinen koodi jatkaaksesi."
 
+#: src/features/ats-checker/messages.ts
+msgid "There is a gap between two dated roles."
+msgstr "Kahden päivätyn roolin välissä on aukko."
+
+#: src/features/ats-checker/messages.ts
+msgid "There is no link to a profile, portfolio or repository."
+msgstr "Linkkiä profiiliin, portfolioon tai koodivarastoon ei ole."
+
+#: src/features/ats-checker/messages.ts
+msgid "There is no summary paragraph."
+msgstr "Yhteenvetokappaletta ei ole."
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "There was a problem while generating the DOCX, please try again."
 msgstr "DOCX-tiedoston luomisessa ilmeni ongelma, yritä uudelleen."
@@ -4445,6 +5382,18 @@ msgstr "PDF-tiedoston luomisessa tapahtui virhe. Yritä uudelleen."
 msgid "There was a problem while preparing your resume for printing, please try again."
 msgstr "Ansioluettelosi valmistelussa tulostusta varten tapahtui virhe. Yritä uudelleen."
 
+#: src/features/ats-checker/messages.ts
+msgid "There was not enough information to run this check."
+msgstr "Tietoa ei ollut riittävästi tämän tarkistuksen suorittamiseen."
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "These checks run as you type and never leave your browser. They ask whether a machine can read your resume, not whether it reads well."
+msgstr "Nämä tarkistukset suoritetaan kirjoittaessasi eivätkä koskaan poistu selaimesta. He kysyvät, voiko kone lukea ansioluettelosi, ei sitä, lukeeko se hyvin."
+
+#: src/libs/resume/ats.ts
+msgid "These dates will not be read correctly."
+msgstr "Näitä päivämääriä ei lueta oikein."
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Thinking"
 msgstr "Ajattelu"
@@ -4454,7 +5403,7 @@ msgstr "Ajattelu"
 msgid "This action cannot be undone."
 msgstr "Tätä toimintoa ei voi perua."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "This action cannot be undone. All your data will be permanently deleted."
 msgstr "Tätä toimintoa ei voi perua. Kaikki tietosi poistetaan pysyvästi."
 
@@ -4474,6 +5423,30 @@ msgstr "Tätä agenttiketjua ei voitu avata."
 msgid "This assistant could not be opened."
 msgstr "Tätä avustajaa ei voitu avata."
 
+#: src/features/ats-checker/messages.ts
+msgid "This check does not apply to this file."
+msgstr "Tämä tarkistus ei koske tätä tiedostoa."
+
+#: src/features/ats-checker/messages.ts
+msgid "This check only runs on resumes written in English."
+msgstr "Tämä tarkistus suoritetaan vain englanniksi kirjoitetuille ansioluetteloille."
+
+#: src/libs/resume/ats.ts
+msgid "This date will not be read correctly."
+msgstr "Tätä päivämäärää ei lueta oikein."
+
+#: src/routes/agent/-components/patch-approval-card.tsx
+msgid "This edit request can no longer be answered."
+msgstr "Tähän muokkauspyyntöön ei voi enää vastata."
+
+#: src/libs/resume/ats.ts
+msgid "This email address will not be recognized."
+msgstr "Tätä sähköpostiosoitetta ei tunnisteta."
+
+#: src/libs/resume/ats.ts
+msgid "This entry has no dates."
+msgstr "Tällä merkinnällä ei ole päivämääriä."
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "This entry will be permanently deleted. This can't be undone."
 msgstr "Tämä merkintä poistetaan pysyvästi. Tätä ei voi kumota."
@@ -4482,17 +5455,105 @@ msgstr "Tämä merkintä poistetaan pysyvästi. Tätä ei voi kumota."
 msgid "This feature requires a connected AI provider. Please set one up in the settings."
 msgstr "Tämä ominaisuus vaatii yhdistetyn tekoälypalveluntarjoajan. Määritä sellainen asetuksissa."
 
-#: src/features/resume/stylesheet/legacy-banner.tsx
-msgid "This instance does not currently allow Semantic CSS editing."
-msgstr "Tämä instanssi ei tällä hetkellä salli semanttisen CSS:n muokkausta."
+#: src/features/ats-checker/messages.ts
+msgid "This file contains form fields."
+msgstr "Tämä tiedosto sisältää lomakekenttiä."
+
+#: src/features/ats-checker/report/jd-coverage.tsx
+msgid "This file contains text a reader cannot see, so some of these matches may be against it."
+msgstr "Tämä tiedosto sisältää tekstiä, jota lukija ei näe, joten osa näistä osumista saattaa kohdistua siihen."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file contains text drawn invisibly."
+msgstr "Tämä tiedosto sisältää näkymättömäksi piirrettyä tekstiä."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file contains white-on-white text."
+msgstr "Tämä tiedosto sisältää valkoista tekstiä valkoisella pohjalla."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file declares no language."
+msgstr "Tämä tiedosto ei ilmoita kieltä."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file has no accessibility tags."
+msgstr "Tässä tiedostossa ei ole saavutettavuustageja."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file is encrypted."
+msgstr "Tämä tiedosto on salattu."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file is large for a resume."
+msgstr "Tämä tiedosto on suuri ansioluettelolle."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file is larger than many application forms accept."
+msgstr "Tämä tiedosto on suurempi kuin monet hakulomakkeet hyväksyvät."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file uses a lot of different fonts."
+msgstr "Tämä tiedosto käyttää paljon eri fontteja."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file uses Type 3 fonts, which carry drawings instead of characters."
+msgstr "Tämä tiedosto käyttää Type 3 -fontteja, jotka sisältävät piirroksia merkkien sijaan."
+
+#: src/features/ats-checker/messages.ts
+msgid "This file's page contents could not be inspected in time."
+msgstr "Tämän tiedoston sivujen sisältöä ei voitu tarkastaa ajoissa."
+
+#: src/libs/resume/ats.ts
+msgid "This heading is not one parsers look for."
+msgstr "Tämä otsikko ei ole jäsentäjien etsimä."
+
+#: src/features/ats-checker/messages.ts
+msgid "This is a PDF Portfolio: the visible page is only a cover."
+msgstr "Tämä on PDF-portfolio: näkyvä sivu on vain kansi."
 
 #: src/dialogs/resume/index.tsx
 msgid "This is a URL-friendly name for your resume."
 msgstr "Tämä on URL-ystävällinen nimi ansioluettelollesi."
 
+#: src/features/ats-checker/messages.ts
+msgid "This is an XFA form, so most software reads only the empty shell."
+msgstr "Tämä on XFA-lomake, joten useimmat ohjelmistot lukevat vain tyhjän kuoren."
+
+#: src/features/ats-checker/messages.ts
+msgid "This is not a common resume page size."
+msgstr "Tämä ei ole tavallinen ansioluettelon sivukoko."
+
+#: src/libs/resume/ats.ts
+msgid "This link is missing its protocol."
+msgstr "Tästä linkistä puuttuu protokollansa."
+
 #: src/dialogs/resume/import.tsx
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Tämä voi kestää muutaman minuutin riippuen tekoälypalveluntarjoajan vasteesta. Älä sulje ikkunaa tai päivitä sivua."
+
+#: src/features/ats-checker/report/report-view.tsx
+msgid "This measures how faithfully software can extract this file's text. It does not predict whether an application will be rejected. No tool can. Your file was read in this browser and never uploaded."
+msgstr "Tämä mittaa, kuinka tarkasti ohjelmisto pystyy poimimaan tämän tiedoston tekstin. Se ei ennusta, hylätäänkö hakemus. Mikään työkalu ei pysty siihen. Tiedostosi luettiin tässä selaimessa eikä sitä koskaan ladattu palvelimelle."
+
+#: src/features/ats-checker/messages.ts
+msgid "This page is in columns, and the text extracts out of order."
+msgstr "Tämä sivu on jaettu sarakkeisiin, ja teksti poimitaan väärässä järjestyksessä."
+
+#: src/features/ats-checker/messages.ts
+msgid "This page is very densely packed."
+msgstr "Tämä sivu on hyvin tiiviisti täynnä sisältöä."
+
+#: src/features/ats-checker/tool.tsx
+msgid "This PDF is password protected. Save an unprotected copy and try again."
+msgstr "Tämä PDF on salasanasuojattu. Tallenna suojaamaton kopio ja yritä uudelleen."
+
+#: src/libs/resume/ats.ts
+msgid "This period ends before it starts."
+msgstr "Tämä ajanjakso päättyy ennen kuin se alkaa."
+
+#: src/libs/resume/ats.ts
+msgid "This period starts in the future."
+msgstr "Tämä ajanjakso alkaa tulevaisuudessa."
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "This resume is locked"
@@ -4502,6 +5563,10 @@ msgstr "Tämä ansioluettelo on lukittu"
 msgid "This resume is locked and cannot be updated."
 msgstr "Tämä ansioluettelo on lukittu eikä sitä voi päivittää."
 
+#: src/features/ats-checker/messages.ts
+msgid "This resume is long."
+msgstr "Tämä ansioluettelo on pitkä."
+
 #: src/features/resume/builder/draft.ts
 msgid "This resume was updated by an AI agent."
 msgstr "Tekoälyagentti on päivittänyt tämän ansioluettelon."
@@ -4510,9 +5575,33 @@ msgstr "Tekoälyagentti on päivittänyt tämän ansioluettelon."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Tämän ansioluettelon jakamisasetukset ovat muuttuneet muualla."
 
+#: src/features/ats-checker/ai-review/ai-review-results.tsx
+msgid "This review is a language model's opinion of your writing. It does not change the score above, and it can be wrong. Read it as a second opinion, not a verdict."
+msgstr "Tämä arvio on kielimallin mielipide kirjoituksestasi. Se ei muuta yllä olevia pisteitä, ja se voi olla väärässä. Lue sitä toisena mielipiteenä, ei tuomiona."
+
+#: src/libs/resume/ats.ts
+msgid "This role has no description."
+msgstr "Tällä roolilla ei ole kuvausta."
+
+#: src/libs/resume/ats.ts
+msgid "This section has content but never appears."
+msgstr "Tässä osiossa on sisältöä, mutta se ei koskaan näy."
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "This section is reserved for your personal notes specific to this resume. The content here remains private and is not shared with anyone else."
 msgstr "Tämä osio on varattu henkilökohtaisille muistiinpanoillesi, jotka koskevat tätä ansioluetteloa. Sisältö pysyy yksityisenä eikä sitä jaeta kenellekään."
+
+#: src/libs/resume/ats.ts
+msgid "This section is split across columns."
+msgstr "Tämä osio on jaettu sarakkeisiin."
+
+#: src/libs/resume/ats.ts
+msgid "This section sits in the sidebar."
+msgstr "Tämä osio sijaitsee sivupalkissa."
+
+#: src/features/auth/pages/error.tsx
+msgid "This sign-in attempt expired or was already used. Please start again."
+msgstr "Tämä kirjautumisyritys on vanhentunut tai jo käytetty. Aloita alusta."
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -4541,6 +5630,10 @@ msgstr "Tämä auttaa sinua tunnistamaan sen myöhemmin, jos aiot käyttää use
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "This will remove all items from this section."
 msgstr "Tämä poistaa kaikki kohteet tästä osiosta."
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "This will roll back this patch and any patches applied after it."
+msgstr "Tämä peruu tämän korjauksen ja kaikki sen jälkeen tehdyt korjaukset."
 
 #: src/routes/agent/-components/agent-chat.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
@@ -4574,6 +5667,10 @@ msgstr "Aikajananäytös ansioluettelon laatimisesta Reactive Resumella"
 msgid "Timeline"
 msgstr "Aikajana"
 
+#: src/features/ats-checker/messages.ts
+msgid "Tip"
+msgstr "Vihje"
+
 #: src/dialogs/api-key/create.tsx
 msgid "Tip: Give your API key a name, corresponding to the purpose of the key, to help you identify it later."
 msgstr "Vinkki: Anna API-avaimellesi nimi, joka vastaa sen käyttötarkoitusta, jotta tunnistat sen myöhemmin."
@@ -4589,7 +5686,7 @@ msgstr "Vinkki: Voit nimetä ansioluettelon haettavan tehtävän mukaan."
 msgid "Title"
 msgstr "Otsikko"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "Poistaaksesi tilisi sinun täytyy syöttää vahvistusteksti ja napsauttaa alla olevaa painiketta."
 
@@ -4624,6 +5721,18 @@ msgstr "Oikean sivupalkin vaihtaminen"
 msgid "Toggle threads"
 msgstr "Näytä/piilota ketjut"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {threadTokenTotal}"
+msgstr "Tokenit: {threadTokenTotal}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total}"
+msgstr "Tokenit: {total}"
+
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Tokens: {total} ({cached} cached)"
+msgstr "Tokenit: {total} ({cached} välimuistista)"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Seuraa työpaikkaa, johon haet, ja linkitä lähettämäsi ansioluettelo."
@@ -4648,6 +5757,10 @@ msgstr "Yritä uudelleen"
 #: src/libs/locale.ts
 msgid "Turkish"
 msgstr "turkki"
+
+#: src/features/ats-checker/messages.ts
+msgid "Turn off discretionary ligatures when exporting."
+msgstr "Poista valinnaiset ligatuurit käytöstä viedessäsi."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Turn on public sharing to track how many times your resume has been viewed or downloaded. Only you can see your resume's statistics."
@@ -4712,7 +5825,7 @@ msgstr "Kaksitekijätodennus QR-koodi"
 msgid "Type"
 msgstr "Tyyppi"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Type \"{CONFIRMATION_TEXT}\" to confirm"
 msgstr "Kirjoita \"{CONFIRMATION_TEXT}\" vahvistaaksesi"
 
@@ -4881,6 +5994,10 @@ msgstr "Päivitetään ansioluetteloasi..."
 msgid "Upload .csv"
 msgstr "Lataa .csv"
 
+#: src/routes/_home/ats-checker.tsx
+msgid "Upload a resume and see what an applicant tracking system actually reads from it. Everything runs in this browser. Your file is never uploaded, and nothing is stored."
+msgstr "Lataa ansioluettelo ja katso, mitä hakijaseurantajärjestelmä siitä oikeasti lukee. Kaikki toimii tässä selaimessa. Tiedostoasi ei koskaan ladata palvelimelle, eikä mitään tallenneta."
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Upload attachments"
 msgstr "Lähetä liitteitä"
@@ -4907,14 +6024,62 @@ msgstr "URL-osoite"
 msgid "Use"
 msgstr "Käyttää"
 
+#: src/libs/resume/ats.ts
+msgid "Use a line height of at least 1.15 so lines are not merged together."
+msgstr "Käytä vähintään 1,15 rivin korkeutta, jotta rivejä ei yhdistetä."
+
+#: src/libs/resume/ats.ts
+msgid "Use a plain address such as name@example.com, with no surrounding text."
+msgstr "Käytä tavallista osoitetta, kuten nimi@example.com, ilman tekstiä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Use a plain international form, such as +1 555 010 1234."
+msgstr "Käytä yksinkertaista kansainvälistä muotoa, kuten +1 555 010 1234."
+
+#: src/features/ats-checker/messages.ts
+msgid "Use a recognised form such as \"Jan 2020 - Mar 2022\" or \"2020 - 2022\"."
+msgstr "Käytä tunnistettavaa muotoa, kuten \"Jan 2020 - Mar 2022\" tai \"2020 - 2022\"."
+
+#: src/libs/resume/ats.ts
+msgid "Use a recognized form such as \"Jan 2020 - Mar 2022\" or \"2020 - 2022\"."
+msgstr "Use a recognized form such as \\\"Jan 2020 - Mar 2022\\\" or \\\"2020 - 2022\\\"."
+
+#: src/libs/resume/ats.ts
+msgid "Use a recognized form such as \"March 2022\" or \"2022\"."
+msgstr "Use a recognized form such as \\\"March 2022\\\" or \\\"2022\\\"."
+
+#: src/features/ats-checker/messages.ts
+msgid "Use a single column for anything that has to be read in sequence."
+msgstr "Käytä yhtä saraketta kaikelle, mikä täytyy lukea järjestyksessä."
+
+#: src/libs/resume/ats.ts
+msgid "Use a size of at least 9pt so re-rendered copies stay accurate."
+msgstr "Käytä vähintään 9 pt:n kokoa, jotta uudelleen renderoidut kopiot pysyvät tarkkoja."
+
+#: src/features/ats-checker/messages.ts
+msgid "Use A4 or US Letter so the layout survives being re-rendered."
+msgstr "Käytä A4- tai US Letter -kokoa, jotta asettelu säilyy uudelleenrenderöinnissä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Use at least 9pt."
+msgstr "Käytä vähintään 9 pt:n kokoa."
+
 #: src/components/input/color-picker.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Use color {color}"
 msgstr "Käytä väriä {color}"
 
+#: src/features/ats-checker/messages.ts
+msgid "Use plain headings such as \"Experience\", \"Education\" and \"Skills\"."
+msgstr "Käytä yksinkertaisia otsikoita, kuten \"Experience\", \"Education\" ja \"Skills\"."
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Use sample"
 msgstr "Käytä esimerkkiä"
+
+#: src/features/ats-checker/messages.ts
+msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
+msgstr "Käytä editorisi tavallista luettelomerkkilistaa, jotta irralliset merkit eivät päädy kesken lauseen."
 
 #. Label for username input on registration form
 #: src/dialogs/resume/sections/profile.tsx
@@ -4931,9 +6096,25 @@ msgstr "Käyttäjät"
 msgid "Uzbek"
 msgstr "uzbekki"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid"
+msgstr "Kelvollinen"
+
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
 msgstr "Kelvollisten URL-osoitteiden on alettava http:// tai https:// ."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with errors"
+msgstr "Kelvollinen, sisältää virheitä"
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with warnings"
+msgstr "Kelvollinen, sisältää varoituksia"
+
+#: src/features/ats-checker/messages.ts
+msgid "Vary the openings so the section does not read as boilerplate."
+msgstr "Vaihtele aloituksia, jotta osio ei vaikuta vakiotekstiltä."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
@@ -4977,6 +6158,14 @@ msgstr "Sähköpostin vahvistus vaaditaan, kun palautat salasanaasi."
 msgid "Version history"
 msgstr "Versiohistoria"
 
+#: src/features/ats-checker/messages.ts
+msgid "Very few words were recovered for a resume."
+msgstr "Ansioluettelolle poimittiin hyvin vähän sanoja."
+
+#: src/features/ats-checker/messages.ts
+msgid "Very little text was recovered for this many pages."
+msgstr "Näin monelle sivulle poimittiin hyvin vähän tekstiä."
+
 #: src/libs/locale.ts
 msgid "Vietnamese"
 msgstr "vietnam"
@@ -4995,6 +6184,19 @@ msgstr "Vapaaehtoistyö"
 msgid "vs previous 30 days"
 msgstr "verrattuna edellisiin 30 päivään"
 
+#: src/routes/agent/-components/agent-chat.tsx
+msgid "Waiting for the agent…"
+msgstr "Odotetaan agenttia…"
+
+#: src/features/ats-checker/ai-review/locked-card.tsx
+msgid "Want a second opinion on the writing?"
+msgstr "Haluatko toisen mielipiteen kirjoituksesta?"
+
+#: src/features/ats-checker/messages.ts
+#: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
+msgid "Warning"
+msgstr "Varoitus"
+
 #: src/dialogs/resume/import.tsx
 msgid "We couldn't detect the format automatically — please choose it above."
 msgstr "Emme havainneet muotoa automaattisesti – valitse se yllä."
@@ -5002,6 +6204,18 @@ msgstr "Emme havainneet muotoa automaattisesti – valitse se yllä."
 #: src/components/layout/not-found-screen.tsx
 msgid "We couldn't find that page"
 msgstr "Emme löytäneet kyseistä sivua"
+
+#: src/features/auth/pages/error.tsx
+msgid "We couldn't link that provider account. Please try again."
+msgstr "Emme voineet liittää kyseistä palveluntarjoajan tiliä. Yritä uudelleen."
+
+#: src/features/auth/pages/error.tsx
+msgid "We couldn't read your profile from the provider."
+msgstr "Emme voineet lukea profiiliasi palveluntarjoajalta."
+
+#: src/routes/agent/-components/tool-part-card.tsx
+msgid "Web search"
+msgstr "Verkkohaku"
 
 #: src/dialogs/resume/sections/award.tsx
 #: src/dialogs/resume/sections/certification.tsx
@@ -5016,6 +6230,14 @@ msgstr "Emme löytäneet kyseistä sivua"
 msgid "Website"
 msgstr "Verkkosivusto"
 
+#: src/features/ats-checker/parse-preview.tsx
+msgid "What a parser reads"
+msgstr "Mitä jäsentäjä lukee"
+
+#: src/features/ats-checker/parse-preview.tsx
+msgid "What a person sees"
+msgstr "Mitä ihminen näkee"
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "What do you want to do?"
 msgstr "Mitä haluat tehdä?"
@@ -5027,6 +6249,14 @@ msgstr "Miksi haluat nimetä tämän osion uudelleen?"
 #: src/routes/_home/-sections/faq.tsx
 msgid "What makes Reactive Resume different from other resume builders?"
 msgstr "Mikä erottaa Reactive Resumen muista ansioluettelon laatijoista?"
+
+#: src/routes/_home/ats-checker.tsx
+msgid "What this checks"
+msgstr "Mitä tämä tarkistaa"
+
+#: src/routes/_home/ats-checker.tsx
+msgid "What this does not do"
+msgstr "Mitä tämä ei tee"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "What's new in the latest version?"
@@ -5045,6 +6275,46 @@ msgstr "Mistä hakemukset tulevat"
 msgid "Where your applications went"
 msgstr "Mihin hakemuksesi päätyivät"
 
+#: src/features/ats-checker/messages.ts
+msgid "Whether a recruiter can reach you."
+msgstr "Pystyykö rekrytoija tavoittamaan sinut."
+
+#: src/features/ats-checker/messages.ts
+msgid "Whether software can recover the words at all."
+msgstr "Pystyykö ohjelmisto poimimaan sanat ylipäätään."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "Whether the file holds real text, or a picture of it."
+msgstr "Sisältääkö tiedosto todellista tekstiä vai kuvan siitä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Whether the page geometry preserves reading order."
+msgstr "Säilyttääkö sivun geometria lukujärjestyksen."
+
+#: src/features/ats-checker/messages.ts
+msgid "Whether the resume is segmented the way software expects."
+msgstr "Onko ansioluettelo segmentoitu tavalla, jota ohjelmisto odottaa."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "Whether the text comes out in the order a person would read it."
+msgstr "Tuleeko teksti ulos siinä järjestyksessä, jossa ihminen sen lukisi."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "Whether the usual sections are there and can be told apart."
+msgstr "Ovatko tavanomaiset osiot paikallaan ja erotettavissa toisistaan."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "Whether your name, email, phone and dates survive intact."
+msgstr "Säilyvätkö nimesi, sähköpostisi, puhelinnumerosi ja päivämääräsi ehjinä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Whether your timeline can be reconstructed."
+msgstr "Voidaanko aikajanasi muodostaa uudelleen."
+
+#: src/features/ats-checker/messages.ts
+msgid "Words run together when the text is extracted."
+msgstr "Sanat sulautuvat yhteen, kun teksti poimitaan."
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Work OpenAI"
 msgstr "Työskentele OpenAI:lla"
@@ -5056,6 +6326,30 @@ msgstr "Työskentely…"
 #: src/features/applications/components/application-ai-copilot.tsx
 msgid "Worth a shot"
 msgstr "Kannattaa kokeilla"
+
+#: src/features/ats-checker/messages.ts
+msgid "Write \"Present\" as the end date of your current role."
+msgstr "Kirjoita \"Present\" nykyisen roolisi päättymispäiväksi."
+
+#: src/features/ats-checker/messages.ts
+msgid "Write each role as a clear title and company line, with the dates alongside."
+msgstr "Kirjoita jokainen rooli selkeänä tehtävänimike- ja yritysrivinä, päivämäärät vierellä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Write it as one uninterrupted piece, with no special spacing."
+msgstr "Kirjoita se yhtenä katkeamattomana kokonaisuutena ilman erikoisvälistystä."
+
+#: src/features/ats-checker/messages.ts
+msgid "Write the full address so it is recognised as a link."
+msgstr "Kirjoita koko osoite, jotta se tunnistetaan linkiksi."
+
+#: src/libs/resume/ats.ts
+msgid "Write the full address, including https://."
+msgstr "Kirjoita koko osoite, mukaan lukien https://."
+
+#: src/features/ats-checker/messages.ts
+msgid "Writing"
+msgstr "Kirjoitus"
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "X (Twitter)"
@@ -5085,28 +6379,53 @@ msgstr "Voit myös käyttää käyttäjätunnustasi kirjautumiseen."
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Voit jakaa ansioluettelosi yksilöllisen julkisen URL-osoitteen kautta, suojata sen salasanalla tai ladata sen PDF:nä jakaaksesi sen suoraan. Valinta on sinun!"
 
+#: src/features/auth/pages/error.tsx
+msgid "You cancelled the sign-in before it finished."
+msgstr "Peruutit kirjautumisen ennen kuin se valmistui."
+
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
 msgstr "Sinulla on tallentamattomia muutoksia, jotka menetetään."
+
+#: src/dialogs/resume/import.tsx
+msgid "You'll be taken to the Integrations page. The file you selected won't be imported."
+msgstr "Sinut ohjataan Integraatiot-sivulle. Valitsemaasi tiedostoa ei tuoda."
 
 #: src/features/auth/pages/forgot-password.tsx
 #: src/features/auth/pages/register.tsx
 msgid "You've got mail!"
 msgstr "Sinulle on tullut postia!"
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/settings/pages/account.tsx
 msgid "Your account has been deleted successfully."
 msgstr "Tilisi on poistettu onnistuneesti."
+
+#: src/features/ats-checker/ai-review/ai-review-card.tsx
+msgid "Your AI provider could not be reached. Check its settings and try again."
+msgstr "Tekoälypalveluntarjoajaasi ei tavoitettu. Tarkista sen asetukset ja yritä uudelleen."
 
 #: src/dialogs/api-key/create.tsx
 msgid "Your API key has been copied to the clipboard."
 msgstr "API-avaimesi on kopioitu leikepöydälle."
 
+#: src/features/ats-checker/messages.ts
+#: src/libs/resume/ats.ts
+msgid "Your body text is very small."
+msgstr "Tekstisi on hyvin pieni."
+
+#: src/features/ats-checker/messages.ts
+msgid "Your bullets are drawn with unusual characters."
+msgstr "Luettelokohtasi merkitään epätavallisilla merkeillä."
+
 #: src/routes/builder/$resumeId/-components/preview-page.tsx
 msgid "Your changes are saved automatically."
 msgstr "Muutoksesi tallentuvat automaattisesti."
 
-#: src/features/settings/pages/danger-zone.tsx
+#: src/features/ats-checker/messages.ts
+msgid "Your contact details are not on the first page."
+msgstr "Yhteystietosi eivät ole ensimmäisellä sivulla."
+
+#: src/features/settings/pages/account.tsx
 msgid "Your data has been exported successfully."
 msgstr "Tietosi on viety onnistuneesti."
 
@@ -5118,6 +6437,26 @@ msgstr "Tietosi ovat turvassa, eikä niitä koskaan jaeta tai myydä kenellekä�
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Tietosi tallennetaan turvallisesti eikä niitä koskaan jaeta kolmansille osapuolille. Voit myös itseisännöidä Reactive Resumen omilla palvelimillasi täydellisen tietokontrollin takaamiseksi."
 
+#: src/features/ats-checker/messages.ts
+msgid "Your dates are written several different ways."
+msgstr "Päivämääräsi on kirjoitettu usealla eri tavalla."
+
+#: src/features/ats-checker/messages.ts
+msgid "Your email address is broken across pieces of text."
+msgstr "Sähköpostiosoitteesi on hajautettu useisiin tekstinpätkiin."
+
+#: src/features/auth/pages/error.tsx
+msgid "Your email address isn't verified with the provider."
+msgstr "Sähköpostiosoitettasi ei ole vahvistettu palveluntarjoajalla."
+
+#: src/routes/_home/ats-checker.tsx
+msgid "Your file stays here"
+msgstr "Tiedostosi pysyy täällä"
+
+#: src/features/ats-checker/messages.ts
+msgid "Your headings look the same as your body text."
+msgstr "Otsikkosi näyttävät samalta kuin leipätekstisi."
+
 #: src/features/resume/builder/draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Viimeisimpiä muutoksiasi ei voitu tallentaa."
@@ -5126,6 +6465,19 @@ msgstr "Viimeisimpiä muutoksiasi ei voitu tallentaa."
 msgid "Your legacy styles remain active until you explicitly activate this Semantic CSS draft."
 msgstr "Vanhat tyylisi pysyvät aktiivisina, kunnes aktivoit tämän semanttisen CSS-luonnoksen erikseen."
 
+#: src/features/ats-checker/messages.ts
+#: src/libs/resume/ats.ts
+msgid "Your lines are packed very tightly."
+msgstr "Sinun rivisi on pakattu erittäin tiukasti."
+
+#: src/features/ats-checker/messages.ts
+msgid "Your margins are very narrow."
+msgstr "Marginaalisi ovat hyvin kapeat."
+
+#: src/libs/resume/ats.ts
+msgid "Your page margins are very narrow."
+msgstr "Sivusi marginaalit ovat hyvin kapeat."
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "Salasanasi on palautettu onnistuneesti. Voit nyt kirjautua sisään uudella salasanallasi."
@@ -5133,6 +6485,10 @@ msgstr "Salasanasi on palautettu onnistuneesti. Voit nyt kirjautua sisään uude
 #: src/dialogs/auth/change-password.tsx
 msgid "Your password has been updated successfully."
 msgstr "Salasanasi on päivitetty onnistuneesti."
+
+#: src/features/ats-checker/messages.ts
+msgid "Your phone number is written in an unusual shape."
+msgstr "Puhelinnumerosi on kirjoitettu epätavallisessa muodossa."
 
 #: src/features/settings/pages/profile.tsx
 msgid "Your profile has been updated successfully."
@@ -5162,6 +6518,34 @@ msgstr "Ansioluettelosi on palautettu valittuun versioon."
 #: src/dialogs/resume/index.tsx
 msgid "Your resume has been updated successfully."
 msgstr "Ansioluettelosi on päivitetty onnistuneesti."
+
+#: src/libs/resume/ats.ts
+msgid "Your resume has no email address."
+msgstr "Ansioluettelossasi ei ole sähköpostiosoitetta."
+
+#: src/libs/resume/ats.ts
+msgid "Your resume has no location."
+msgstr "Ansioluettelossasi ei ole sijaintia."
+
+#: src/libs/resume/ats.ts
+msgid "Your resume has no name."
+msgstr "Ansioluettelossasi ei ole nimeä."
+
+#: src/libs/resume/ats.ts
+msgid "Your resume has no phone number."
+msgstr "Ansioluettelossasi ei ole puhelinnumeroa."
+
+#: src/libs/resume/ats.ts
+msgid "Your resume includes a photo."
+msgstr "Ansioluettelosi sisältää valokuvan."
+
+#: src/libs/resume/ats.ts
+msgid "Your resume shows no work experience."
+msgstr "Ansioluettelostasi ei löydy työkokemusta."
+
+#: src/features/ats-checker/messages.ts
+msgid "Your resume uses \"I\" and \"my\"."
+msgstr "Ansioluettelossasi käytetään sanoja \"I\" ja \"my\"."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Your resume's public link is currently protected by a password. Share the password only with people you trust."

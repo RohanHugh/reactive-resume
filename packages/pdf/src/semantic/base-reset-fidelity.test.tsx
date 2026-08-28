@@ -54,7 +54,7 @@ const buildFixture = (template: Template, rule = ""): ResumeData => {
 			: [{ fullWidth: true, main: ["skills"], sidebar: [] }];
 
 	const stylesheet = { languageVersion: 1, text: `@version 1; ${rule}` };
-	data.metadata.stylesheet = { mode: "semantic", source: stylesheet, applied: stylesheet };
+	data.metadata.stylesheet = { mode: "semantic", source: stylesheet };
 	return data;
 };
 
@@ -88,7 +88,7 @@ const finalOnyxCompanyStyle = async (keyword?: "inherit" | "initial" | "revert" 
 		keyword ? `section[type="experience"] field[name="company"] { font-weight: ${keyword}; }` : ""
 	}`;
 	const stylesheet = { languageVersion: 1, text };
-	data.metadata.stylesheet = { mode: "semantic", source: stylesheet, applied: stylesheet };
+	data.metadata.stylesheet = { mode: "semantic", source: stylesheet };
 	const element = createElement(ResumeDocument, { data, template: "onyx" }) as unknown as Parameters<typeof pdf>[0];
 	const instance = pdf(element);
 	await expect.poll(() => instance.container.document).not.toBeNull();
@@ -152,7 +152,11 @@ describe("PDF semantic base and reset fidelity", () => {
 	});
 
 	it("restores Onyx's local company weight with revert", async () => {
-		expect(await finalOnyxCompanyStyle()).toMatchObject({ fontWeight: "500" });
-		expect(await finalOnyxCompanyStyle("revert")).toMatchObject({ fontWeight: "500" });
+		// The local value is the template's bold weight for the body family:
+		// IBM Plex Serif stored as ["400", "500"] resolves to its true Bold
+		// face (#3310) — still distinct from the inherited 400 and the initial
+		// undefined, so the reset-keyword contract below stays verifiable.
+		expect(await finalOnyxCompanyStyle()).toMatchObject({ fontWeight: "700" });
+		expect(await finalOnyxCompanyStyle("revert")).toMatchObject({ fontWeight: "700" });
 	});
 });

@@ -1,4 +1,58 @@
+<!-- intent-skills:start -->
+## Skill Loading
+
+Before editing files for a substantial task:
+- Run `pnpm dlx @tanstack/intent@latest list` from the workspace root to see available local skills.
+- If a listed skill matches the task, run `pnpm dlx @tanstack/intent@latest load <package>#<skill>` before changing files.
+- Use the loaded `SKILL.md` guidance while making the change.
+- Monorepos: when working across packages, run the skill check from the workspace root and prefer the local skill for the package being changed.
+- Multiple matches: prefer the most specific local skill for the package or concern you are changing; load additional skills only when the task spans multiple packages or concerns.
+<!-- intent-skills:end -->
+
+<!-- caveman-begin -->
+Respond terse like smart caveman. All technical substance stay. Only fluff die.
+
+Rules:
+- Drop: articles (a/an/the), filler (just/really/basically), pleasantries, hedging
+- Fragments OK. Short synonyms. Technical terms exact. Code unchanged.
+- Pattern: [thing] [action] [reason]. [next step].
+- Not: "Sure! I'd be happy to help you with that."
+- Yes: "Bug in auth middleware. Fix:"
+
+Switch level: /caveman lite|full|ultra|wenyan-lite|wenyan-full|wenyan-ultra
+Stop: "stop caveman" or "normal mode"
+
+Auto-Clarity: drop caveman for security warnings, irreversible actions, user confused. Resume after.
+
+Boundaries: code/commits/PRs written normal.
+<!-- caveman-end -->
+
+<!-- graphify-begin -->
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+<!-- graphify-end -->
+
 # AGENTS.md
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs are tracked in GitHub Issues for `amruthpillai/reactive-resume`. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+This repository uses a multi-context domain-doc layout. See `docs/agents/domain.md`.
 
 ## Cursor Cloud specific instructions
 
@@ -12,7 +66,7 @@ Internal packages are source-consumed through `package.json` export maps that po
 
 - **Node.js 24** (matches Dockerfile `ARG NODE_VERSION=24`). Use `nvm install 24 && nvm use 24` if needed.
 - **Docker** is required to run PostgreSQL. Start it with `sudo dockerd &` if the daemon isn't running.
-- **pnpm 11.17.0** is managed via corepack (`corepack enable`).
+- **pnpm 11.21.0**. Install pnpm directly using the [official installation guide](https://pnpm.io/installation).
 
 ### Codebase map
 
@@ -107,13 +161,15 @@ The production server runs migrations during startup before serving traffic. Man
 
 ### Environment
 
-Copy `.env.example` to `.env`. The three required variables are:
+Copy `.env.example` to `.env.local`. The three required variables are:
 
 - `APP_URL` (default `http://localhost:3000`)
 - `DATABASE_URL` (default `postgresql://postgres:postgres@localhost:5432/postgres`)
 - `AUTH_SECRET` (any non-empty string)
 
 S3/SeaweedFS is optional. If `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, and `S3_BUCKET` are all set, the app uses S3-compatible storage. The checked-in `.env.example` sets SeaweedFS defaults, so either start the `seaweedfs` compose service too or comment out those S3 vars to use local filesystem storage under `<workspace>/data`. `LOCAL_STORAGE_PATH` must be absolute when set.
+
+`REDIS_URL` and `ENCRYPTION_SECRET` are optional for core resume flows, but both are required for saved AI providers and the authenticated `/agent` workspace. Start the `redis` compose service and set both vars in `.env.local` when working on those features. For host-run development, use `REDIS_URL=redis://localhost:6379`; the container-run app uses `REDIS_URL=redis://redis:6379`.
 
 When running dev servers or migration commands, prefix the command with `dotenvx run -f .env.local --`. For example: `dotenvx run -f .env.local -- pnpm dev`. Tests, typechecks, linters, boundary checks, and `pnpm build` do not need this prefix by default. If one of those commands fails because a specific environment variable is required, rerun it with the `dotenvx run -f .env.local --` prefix.
 
@@ -124,6 +180,7 @@ When running dev servers or migration commands, prefix the command with `dotenvx
 | Install deps | `pnpm install` |
 | Start Postgres only | `sudo docker compose -f compose.dev.yml up -d postgres` |
 | Start Postgres + SeaweedFS | `sudo docker compose -f compose.dev.yml up -d postgres seaweedfs seaweedfs_create_bucket` |
+| Start full dev infrastructure | `sudo docker compose -f compose.dev.yml up -d postgres redis seaweedfs seaweedfs_create_bucket` |
 | Generate migrations | `dotenvx run -f .env.local -- pnpm db:generate` |
 | Run migrations | `dotenvx run -f .env.local -- pnpm db:migrate` |
 | Dev server | `dotenvx run -f .env.local -- pnpm dev` (starts on port 3000) |

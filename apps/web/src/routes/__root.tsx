@@ -17,7 +17,7 @@ import { createRootRouteWithContext, HeadContent, Outlet, useRouterState } from 
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { domAnimation, LazyMotion, MotionConfig } from "motion/react";
 import { useEffect } from "react";
-import { Toaster } from "@reactive-resume/ui/components/sonner";
+import { Toaster } from "@reactive-resume/ui/components/toast";
 import { TooltipProvider } from "@reactive-resume/ui/components/tooltip";
 import { BreakpointIndicator } from "@/components/layout/breakpoint-indicator";
 import { DonationToast } from "@/components/ui/donation-toast";
@@ -43,8 +43,9 @@ type RouterContext = {
 const appName = "Reactive Resume";
 const tagline = "A free and open-source resume builder";
 const title = `${appName} — ${tagline}`;
+// Keep under ~120 characters so Google's mobile SERP snippet is not truncated at 3 lines.
 const description =
-	"Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.";
+	"Free, open-source resume builder. Create, update, and share a professional resume in minutes — no ads, no paywall.";
 const iconContextValue: IconProps = { size: 16, weight: "regular" };
 
 export const Route = createRootRouteWithContext<RouterContext>()({
@@ -73,12 +74,13 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 				{ name: "apple-mobile-web-app-capable", content: "yes" },
 				{ name: "apple-mobile-web-app-title", content: "Reactive Resume" },
 				{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
-				// Twitter Tags
-				{ property: "twitter:image", content: `${appUrl}/opengraph/banner.jpg` },
-				{ property: "twitter:card", content: "summary_large_image" },
-				{ property: "twitter:title", content: title },
-				{ property: "twitter:description", content: description },
+				// Twitter Tags — X only reads these as `name`, not `property`
+				{ name: "twitter:image", content: `${appUrl}/opengraph/banner.jpg` },
+				{ name: "twitter:card", content: "summary_large_image" },
+				{ name: "twitter:title", content: title },
+				{ name: "twitter:description", content: description },
 				// OpenGraph Tags
+				{ property: "og:type", content: "website" },
 				{ property: "og:image", content: `${appUrl}/opengraph/banner.jpg` },
 				{ property: "og:site_name", content: appName },
 				{ property: "og:title", content: title },
@@ -134,7 +136,7 @@ function RootComponent() {
 														{!isBuilder && <DonationToast />}
 														<DialogManager />
 														<CommandPalette />
-														<Toaster richColors position="bottom-center" />
+														<Toaster />
 
 														{import.meta.env.DEV && <BreakpointIndicator />}
 														{import.meta.env.DEV && (
