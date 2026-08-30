@@ -204,6 +204,7 @@ Tell the user:
 **Template resume slug:** `rohan-hugh-template`
 
 **Resume table columns:**
+
 | Column | Type | Notes |
 |---|---|---|
 | id | text | UUID, use gen_random_uuid()::text |
@@ -215,6 +216,7 @@ Tell the user:
 | updated_at | timestamptz | NOW() |
 
 **Application table columns:**
+
 | Column | Type | Notes |
 |---|---|---|
 | id | text | UUID, use gen_random_uuid()::text |
