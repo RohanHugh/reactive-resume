@@ -62,10 +62,13 @@ export const ResumeDocument = ({
 	const pageMinHeightStyle = getTemplatePageMinHeightStyle(resumeData.metadata.page.format);
 	const headerResumeData = renderOptions ? { ...resumeData, renderOptions } : resumeData;
 	const stylesheetMode = resolveStylesheetMode(resumeData);
-	const runtime = useMemo(
-		() => semanticRuntime ?? resolveResumeRuntime({ data: resumeData, template, mode: stylesheetMode }),
-		[resumeData, semanticRuntime, stylesheetMode, template],
-	);
+		// Use headerResumeData (not resumeData) so renderOptions (e.g. includeCoverLetterHeader)
+		// reaches the semantic runtime's header decision — otherwise the semantic renderer
+		// always computes showHeader=false for cover-letter-only exports, ignoring the toggle.
+		const runtime = useMemo(
+			() => semanticRuntime ?? resolveResumeRuntime({ data: headerResumeData, template, mode: stylesheetMode }),
+			[headerResumeData, semanticRuntime, stylesheetMode, template],
+		);
 	const semanticMode = semanticRuntime ? "semantic" : stylesheetMode;
 
 	return (
